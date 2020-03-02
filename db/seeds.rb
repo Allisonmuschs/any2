@@ -5,3 +5,12 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+User.destroy_all
+
+
+p user = User.create(email: "a@gmail.com", username: 'hello', password: 123123)
+p event1 = Event.create(name: 'Party hard', location: 'Brussels', date: Time.now, artist: 'DJ K', user: user)
+p song_r = SongRequest.create(input: "hello what s this song", event: event1, user: user)
+p co1 = Comment.create(commentable: song_r, user: user, input: "hi first comment")
+p co2 = Comment.create(commentable: co1, user: user, input: "hi second comment")
