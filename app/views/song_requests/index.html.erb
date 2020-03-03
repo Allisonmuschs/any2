@@ -7,7 +7,7 @@
   <li>
     <%= sg.input %>
     <% if sg.user == current_user %>
-      <%= link_to '🟠',  edit_song_request_path(sg)%>
+      <%= link_to 'edit', edit_event_song_request_path(@event.id, sg.id)%>
     <% end %>
   </li>
 
