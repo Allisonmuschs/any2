@@ -1,5 +1,5 @@
-<h1>Edit <%= @song_request.input %></h1>
+<h1>Edit</h1>
 
-<%= render "form" %>
+<%= render "form", song_request: @song_request %>
 
-<%= link_to "Back", profile_path , class:'btn btn-primary'%>
+<%= link_to "Back", root_path%>
