@@ -1,4 +1,7 @@
-<%= simple_form_for([@event, @song_request]) do |f| %>
-  <%= f.input :input %>
-  <%= f.button :submit %>
-<% end %>
+<div>
+<h1>Add your song request</h1>
+</div>
+
+<%= render 'form'%>
+
+<%= link_to "Back", root_path%>
