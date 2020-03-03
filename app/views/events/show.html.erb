@@ -1,2 +1,19 @@
 <h1>Events#show</h1>
 <p>Find me in app/views/events/show.html.erb</p>
+
+<%= @event.name %>
+<%= @event.location %>
+<%= @event.artist %>
+<%= @event.date %>
+<%= @event.user_id %>
+
+<h2>Add an event<h2>
+  <%= simple_form_for [@event] do |f| %>
+    <div class="eventsub">
+      <%= f.input :name %>
+      <%= f.input :location %>
+    </div>
+    <div class="submit"></div>
+    <%= f.submit "Submit event", class: 'btn-btn ghost' %>
+  <% end %>
+</div>
