@@ -3,14 +3,22 @@
 
 <ul>
 <% @song_requests.each do |sg| %>
+
   <li>
     <%= sg.input %>
     <% if sg.user == current_user %>
       <%= link_to '🟠',  edit_song_request_path(sg)%>
     <% end %>
+
+  <li><%= sg.input %>
+     <%= link_to '❌', song_request_path(sg),
+              method: :delete,
+              data: { confirm: "Are you sure?" }%>
+
   </li>
 <% end %>
 </ul>
+
 <%= link_to "Add a new request", new_event_song_request_path  %>
 
 <%= simple_form_for Comment.new do |f| %>
