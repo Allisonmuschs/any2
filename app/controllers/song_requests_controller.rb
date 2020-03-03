@@ -16,7 +16,6 @@ class SongRequestsController < ApplicationController
     @song_request.user = current_user
     if @song_request.save
        redirect_to event_song_requests_path
-
     else
       render :new
     end
@@ -39,12 +38,12 @@ class SongRequestsController < ApplicationController
     else
       render :edit
     end
+  end
 
   def destroy
     @song_request = SongRequest.find(params[:id])
     @song_request.destroy
     redirect_to event_path(@song_request.event)
-
   end
 
   private
@@ -53,5 +52,3 @@ class SongRequestsController < ApplicationController
     params.require(:song_request).permit(:input)
   end
 end
-
-
