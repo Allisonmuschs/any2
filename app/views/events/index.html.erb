@@ -1,6 +1,5 @@
-<h1>Events#index</h1>
-
-<h2>Add an event<h2>
+<h4>Current/Past Events</h4>
+<p>Add new event</p>
   <%= simple_form_for @event do |f| %>
     <div class="eventsub">
       <%= f.input :name %>
@@ -15,7 +14,7 @@
 
 <div class="cards">
   <% @events.each do |event| %>
-    <%= link_to event.name,  event_path(event) %>
+    <li><%= link_to event.name,  event_path(event) %></li>
   <% end %>
 </div>
 
