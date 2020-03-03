@@ -1,6 +1,23 @@
-<h1>Events#index</h1>
-<% @events.each do |event| %>
-  <%= link_to event.name,  event_song_requests_path(event) %>
-<% end %>
+<p>Add new event</p>
+  <%= simple_form_for @event do |f| %>
+    <div class="eventsub">
+      <%= f.input :name %>
+      <%= f.input :location %>
+       <%= f.input :artist %>
+      <%= f.input :date %>
+    </div>
+    <div class="submit"></div>
+    <%= f.submit "Submit event", class: 'btn-btn ghost' %>
+  <% end %>
+</div>
+<br>
+  <p>Current/Past Events</p>
+    <div class="cards">
+      <% @events.each do |event| %>
+        <li><%= link_to event.name,  event_path(event) %></li>
+
+      <li><%= link_to "delete", event_path(event), method: :delete  %></li>
+    <% end %>
+  </div>
 
 

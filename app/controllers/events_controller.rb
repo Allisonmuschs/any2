@@ -1,6 +1,7 @@
 class EventsController < ApplicationController
   def index
     @events = Event.all
+    @event = Event.new
   end
 
   def show
@@ -16,6 +17,20 @@ class EventsController < ApplicationController
     @event.user = current_user
     @event.save
     redirect_to @event
+  end
+
+
+  def destroy
+    #1 . looking for the event in the db
+    @event = Event.find(params[:id])
+
+    #2. destroy the event
+    @event.destroy
+
+
+    #3. redirect to the index of events
+    redirect_to events_path
+
   end
 
   private

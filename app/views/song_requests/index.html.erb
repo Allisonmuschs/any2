@@ -1,4 +1,16 @@
-<h1>SongRequests#index</h1>
+<h1><%= @event.name %> - <%= @event.location %></h1>
+<h2><%= @event.artist %></h2>
+
+<ul>
 <% @song_requests.each do |sg| %>
-  <%= sg.input %>
+  <li><%= sg.input %></li>
 <% end %>
+</ul>
+<%= link_to "Add a new request", new_event_song_request_path  %>
+
+<%= simple_form_for Comment.new do |f| %>
+  <%= f.input :input %>
+  <%= f.button :submit%>
+<% end %>
+
+<%= link_to "Go back to all events", events_path  %>
