@@ -1,0 +1,13 @@
+<li>
+  <%= comment.input %>
+
+  <%= simple_form_for [comment, Comment.new] do |f| %>
+    <%= f.input :input %>
+    <%= f.submit "answer", class: "btn btn-primary" %>
+  <% end %>
+
+  <ul>
+    <%= render partial: 'comments/comment', collection: comment.comments %>
+  </ul>
+</li>
+
