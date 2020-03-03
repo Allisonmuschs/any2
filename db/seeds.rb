@@ -14,3 +14,16 @@ p event1 = Event.create(name: 'Party hard', location: 'Brussels', date: Time.now
 p song_r = SongRequest.create(input: "hello what s this song", event: event1, user: user)
 p co1 = Comment.create(commentable: song_r, user: user, input: "hi first comment")
 p co2 = Comment.create(commentable: co1, user: user, input: "hi second comment")
+
+user = User.create(email: 'seed@seed.seed', password: 'password', password_confirmation: 'password')
+
+Event_attribute = [
+{
+  name: "Fuse",
+  location: "Brussels",
+  artist: "PEg",
+  date: Time.now,
+  user: user
+}
+
+]
