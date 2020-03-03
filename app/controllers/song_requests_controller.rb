@@ -26,6 +26,12 @@ class SongRequestsController < ApplicationController
     @event = Event.find(params[:event_id])
   end
 
+  def destroy
+    @song_request = @song_request.find(params[:id])
+    @song_request.destroy
+    redirect_to event_path
+  end
+
   private
 
   def song_request_params
