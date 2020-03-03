@@ -7,13 +7,3 @@
 <%= @event.date %>
 <%= @event.user_id %>
 
-<h2>Add an event<h2>
-  <%= simple_form_for [@event] do |f| %>
-    <div class="eventsub">
-      <%= f.input :name %>
-      <%= f.input :location %>
-    </div>
-    <div class="submit"></div>
-    <%= f.submit "Submit event", class: 'btn-btn ghost' %>
-  <% end %>
-</div>
