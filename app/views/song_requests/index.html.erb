@@ -3,8 +3,11 @@
   <%= sg.input %>
 <% end %>
 
+<%= link_to "Add a new request", new_event_song_request_path  %>
 
 <%= simple_form_for Comment.new do |f| %>
   <%= f.input :input %>
-  <%= f.hidden_.... %>
+  <%= f.button :submit%>
 <% end %>
+
+<%= link_to "Go back to all events", events_path  %>

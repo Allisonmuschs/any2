@@ -15,7 +15,7 @@ class SongRequestsController < ApplicationController
     @song_request.event = @event
     @song_request.user = current_user
     if @song_request.save
-      redirect_to @song_request
+      redirect_to song_requests_path
     else
       render :new
     end
@@ -29,6 +29,6 @@ class SongRequestsController < ApplicationController
   private
 
   def song_request_params
-    params.require(@song_request).permit(:input)
+    params.require(@song_request).permit(:input, :event_id, :user_id)
   end
 end
