@@ -4,7 +4,7 @@
 <ul>
 <% @song_requests.each do |sg| %>
   <li><%= sg.input %>
-     <%= link_to '❌', event_song_request_path,
+     <%= link_to '❌', song_request_path(sg),
               method: :delete,
               data: { confirm: "Are you sure?" }%>
   </li>
