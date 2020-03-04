@@ -1,7 +1,12 @@
 <div>
 <h1>Add your song request</h1>
 </div>
-
-<%= render 'form'%>
+<h2>Upload your track</h2>
+<%= simple_form_for [@event, @sg] do |f| %>
+  <%= f.input :name %>
+  <%= f.input :artist_name %>
+  <%= f.input :song_request, as: :file %>
+  <%= f.submit 'Request' %>
+<% end %>
 
 <%= link_to "Back", root_path%>

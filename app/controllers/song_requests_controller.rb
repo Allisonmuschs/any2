@@ -49,6 +49,6 @@ class SongRequestsController < ApplicationController
   private
 
   def song_request_params
-    params.require(:song_request).permit(:input)
+    params.require(:song_request).permit(:input, :song_request)
   end
 end
