@@ -26,29 +26,11 @@ class SongRequestsController < ApplicationController
     @event = @song_request.event
   end
 
-
-  def edit
-    @song_request = SongRequest.find(params[:id])
-  end
-
-  def update
-    @song_request = SongRequest.find(params[:id])
-    if @song_request.update(song_request_params)
-      redirect_to event_path(@song_request.event)
-    else
-      render :edit
-    end
-  end
-
-  def destroy
-    @song_request = SongRequest.find(params[:id])
-    @song_request.destroy
-    redirect_to event_path(@song_request.event)
-  end
-
   private
 
   def song_request_params
     params.require(:song_request).permit(:input, :song_request, :song_file)
   end
 end
+
+
