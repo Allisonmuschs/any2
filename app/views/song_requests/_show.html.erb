@@ -1,7 +1,12 @@
-<%= song_request.input %>
- <% if song_request.user == current_user %>
-      <%= link_to 'edit', edit_event_song_request_path(@event.id, song_request.id)%>
+<div><%= song_request.input %>
+<%= song_request.song_file.attached? %>
+<% if song_request.song_file.attached? %>
+</div>
+  <%= audio_tag(rails_blob_path(song_request.song_file, disposition: "attachment"), controls: true) %>
+<% end %>
 
+     <% if song_request.user == current_user %>
+      <%= link_to 'edit', edit_event_song_request_path(@event.id, song_request.id)%>
     - <%= link_to 'delete', song_request_path(song_request),
               method: :delete,
               data: { confirm: "Are you sure?" }%>
