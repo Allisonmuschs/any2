@@ -9,10 +9,7 @@
     <% if sg.user == current_user %>
       <%= link_to 'edit', edit_event_song_request_path(@event.id, sg.id)%>
     <% end %>
-  </li>
-
-  <li><%= sg.input %>
-     <%= link_to '❌', song_request_path(sg),
+    - <%= link_to 'delete', song_request_path(sg),
               method: :delete,
               data: { confirm: "Are you sure?" }%>
 
