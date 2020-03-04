@@ -1,5 +1,11 @@
 <%= song_request.input %>
+<%= song_request.song_file.attached? %>
+<% if song_request.song_file.attached? %>
+  <%= audio_tag(rails_blob_path(song_request.song_file, disposition: "attachment"), controls: true) %>
+<% end %>
 
+
+<h1>Hello test</h1>
 <%= simple_form_for [song_request, Comment.new] do |f| %>
   <%= f.input :input %>
   <%= f.submit "add a comment", class: "btn btn-primary" %>
