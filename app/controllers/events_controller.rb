@@ -19,7 +19,7 @@ class EventsController < ApplicationController
     @event = Event.new(event_params)
     @event.user = current_user
     if @event.save
-      redirect_to @event, notice: "Successfully created the event!"
+      redirect_to events_path, notice: "Successfully created the event!"
     else
       redirect_back fallback_location: events_path, notice: "The event already exists"
     end
@@ -37,6 +37,19 @@ class EventsController < ApplicationController
     #3. redirect to the index of events
     redirect_to events_path
 
+  end
+
+  def edit
+    @event = Event.find(params[:id])
+  end
+
+  def update
+    @event = Event.find(params[:id])
+    if @event.update(event_params)
+      redirect_to events_path
+    else
+      render :edit
+    end
   end
 
   private

@@ -1,4 +1,6 @@
-<h1><%= @event.name %></h1>
+<h1><%= @event.name %> - <%= @event.location %></h1>
+<h2><%= @event.artist %> - <%= @event.date.strftime("%d/%m/%Y %I:%M")%></h2>
+
 
 <!-- collection: @event.song_requests  -->
 <%= simple_form_for [@event, SongRequest.new] do |sg| %>
@@ -7,19 +9,11 @@
 <% end %>
 
 
-
   <% @event.song_requests.each do |song_request| %>
     <h2><%= song_request.id %></h2>
+
     <%= render partial: 'song_requests/show', locals: {song_request: song_request} %>
-  <% end %>
+    <% end %>
 
 
-<h1>Events#show</h1>
-<p>Find me in app/views/events/show.html.erb</p>
-
-<%= @event.name %>
-<%= @event.location %>
-<%= @event.artist %>
-<%= @event.date %>
-<%= @event.user_id %>
-
+  <%= link_to "Back to all events", events_path %>

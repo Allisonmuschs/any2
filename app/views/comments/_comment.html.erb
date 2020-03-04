@@ -1,5 +1,13 @@
 <li>
   <%= comment.input %>
+ <% if comment.user == current_user %>
+      <%= link_to 'edit', edit_comment_path(comment.id)%>
+
+    - <%= link_to 'delete', comment_path(comment),
+              method: :delete,
+              data: { confirm: "Are you sure?" }%>
+    <% end %>
+  </li>
 
   <%= simple_form_for [comment, Comment.new] do |f| %>
     <%= f.input :input %>
