@@ -1,4 +1,6 @@
-<h1><%= @event.name %></h1>
+<h1><%= @event.name %> - <%= @event.location %></h1>
+<h2><%= @event.artist %> - <%= @event.date.strftime("%d/%m/%Y %I:%M")%></h2>
+
 
 <%= simple_form_for [@event, SongRequest.new] do |sg| %>
   <%= sg.input :input %>
@@ -6,17 +8,13 @@
 <% end %>
 
 
-<ul>
   <% @event.song_requests.each do |song_request| %>
     <h2><%= song_request.id %></h2>
+
+
     <%= render partial: 'song_requests/show', locals: {song_request: song_request} %>
-  <% end %>
-</ul>
+    <% end %>
 
 
-<%= @event.name %>
-<%= @event.location %>
-<%= @event.artist %>
-<%= @event.date %>
-<%= @event.user_id %>
 
+  <%= link_to "Back to all events", events_path %>

@@ -10,17 +10,47 @@ class CommentsController < ApplicationController
     end
   end
 
+  def edit
+    @comment = Comment.find(params[:id])
+  end
+
+  def update
+    @comment = Comment.find(params[:id])
+    if @comment.update(comment_params)
+      redirection(@comment)
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @comment = Comment.find(params[:id])
+    if @comment.destroy
+      redirection(@comment)
+    else
+      render :edit
+    end
+  end
 
   private
+
     def comment_params
     params.require(:comment).permit(:input)
-  end
+    end
 
     def find_commentable
         if params[:song_request_id]
         @commentable = SongRequest.find(params[:song_request_id])
       else params[:comment_id]
         @commentable = Comment.find(params[:comment_id])
+      end
+    end
+
+    def redirection(comment)
+      if comment.commentable_type.eql? 'SongRequest'
+        redirect_to event_path(comment.commentable.event)
+      else
+        redirection(comment.commentable)
       end
     end
 end

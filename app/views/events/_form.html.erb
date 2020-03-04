@@ -1,0 +1,12 @@
+<%= simple_form_for @event do |f| %>
+  <div class="eventsub">
+    <%= f.input :name %>
+    <%= f.input :location %>
+     <%= f.input :artist %>
+    <%= f.input :date %>
+  </div>
+
+  <div class="submit"></div>
+    <%= f.submit "Create Event", class: 'btn-btn ghost' %>
+  <% end %>
+  </div>

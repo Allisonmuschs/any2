@@ -4,7 +4,7 @@ class SongRequestsController < ApplicationController
     @song_requests = SongRequest.where(event: @event)
   end
 
-  def  new
+  def new
     @event = Event.find(params[:event_id])
     @song_request = SongRequest.new
   end
@@ -15,7 +15,7 @@ class SongRequestsController < ApplicationController
     @song_request.event = @event
     @song_request.user = current_user
     if @song_request.save
-       redirect_to event_song_requests_path
+       redirect_to event_path(@event)
     else
       render :new
     end
@@ -29,7 +29,7 @@ class SongRequestsController < ApplicationController
   private
 
   def song_request_params
-    params.require(:song_request).permit(:input)
+    params.require(:song_request).permit(:input, :song_request, :song_file)
   end
 end
 

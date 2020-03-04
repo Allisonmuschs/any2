@@ -1,23 +1,29 @@
-<p>Add new event</p>
-  <%= simple_form_for @event do |f| %>
-    <div class="eventsub">
-      <%= f.input :name %>
-      <%= f.input :location %>
-       <%= f.input :artist %>
-      <%= f.input :date %>
-    </div>
-    <div class="submit"></div>
-    <%= f.submit "Submit event", class: 'btn-btn ghost' %>
-  <% end %>
-</div>
-<br>
-  <p>Current/Past Events</p>
-    <div class="cards">
-      <% @events.each do |event| %>
-        <li><%= link_to event.name,  event_path(event) %></li>
 
-      <li><%= link_to "delete", event_path(event), method: :delete  %></li>
+  <h1>Events</h1>
+  <div class="cards">
+    <% @events.each do |event| %>
+    <li>
+    <%= link_to event.name,  event_path(event) %> -
+      <% if event.user == current_user %>
+        <%= link_to 'edit', edit_event_path(event)%>
+        <%= link_to "delete", event_path(event),
+              method: :delete,
+              data: { confirm: "Are you sure?" }%>
+              <% end %>
     <% end %>
+    </li>
   </div>
 
+<br>
+<%= link_to "Add a new event", new_event_path %>
+<br>
+
+<%= form_tag events_path, method: :get do %>
+<%= text_field_tag :query,
+params[:query],
+class: "form-control",
+  placeholder: "Find an event"
+  %>
+  <%= submit_tag "Search", class: "btn btn-primary" %>
+  <% end %>
 
