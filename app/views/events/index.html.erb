@@ -1,3 +1,4 @@
+
   <h1>Current/Past Events</h1>
   <div class="cards">
     <% @events.each do |event| %>
@@ -8,20 +9,7 @@
   </div>
 
 
-  <p>Add new event</p>
-  <%= simple_form_for @event do |f| %>
-  <div class="eventsub">
-    <%= f.input :name %>
-    <%= f.input :location %>
-    <%= f.input :artist %>
-    <%= f.input :date %>
-  </div>
-  <div class="submit"></div>
-  <%= f.submit "Submit event", class: 'btn-btn ghost' %>
-  <% end %>
-</div>
-<br>
-
+<%= link_to "Add a new event", new_event_path %>
 
 <%= form_tag events_path, method: :get do %>
 <%= text_field_tag :query,
