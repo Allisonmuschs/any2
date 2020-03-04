@@ -1,7 +1,14 @@
 <div>
 <h1>Add your song request</h1>
 </div>
+<%= simple_form_for @event,@song_request url: event_song_requests_path do |f| %>
+  <%= f.label :input %>
+  <%= f.input :input %>
+<%= f.label "Audio File" %>
+<%= f.file_field :song_file %>
+<br>
+<br>
 
-<%= render 'form'%>
-
+<%= f.submit "submit track" %>
+<% end %>
 <%= link_to "Back", root_path%>

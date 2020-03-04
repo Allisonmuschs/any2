@@ -4,7 +4,7 @@ class SongRequestsController < ApplicationController
     @song_requests = SongRequest.where(event: @event)
   end
 
-  def  new
+  def new
     @event = Event.find(params[:event_id])
     @song_request = SongRequest.new
   end
@@ -49,6 +49,6 @@ class SongRequestsController < ApplicationController
   private
 
   def song_request_params
-    params.require(:song_request).permit(:input)
+    params.require(:song_request).permit(:input, :song_request, :song_file)
   end
 end
