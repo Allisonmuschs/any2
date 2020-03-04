@@ -12,9 +12,10 @@ class CommentsController < ApplicationController
 
 
   private
+
     def comment_params
     params.require(:comment).permit(:input)
-  end
+    end
 
     def find_commentable
         if params[:song_request_id]
