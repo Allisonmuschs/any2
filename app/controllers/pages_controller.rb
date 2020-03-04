@@ -1,6 +1,11 @@
 class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:home]
 
-  def home
+  def profile
+    @comments = current_user.comments
+    @username = current_user.username
+    @song_requests = current_user.song_requests
+    @events = current_user.events
   end
+
 end
