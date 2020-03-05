@@ -13,7 +13,7 @@
     <% end %>
 <%= simple_form_for [song_request, Comment.new] do |f| %>
   <%= f.input :input %>
-  <%= f.submit "add a comment", class: "btn btn-primary" %>
+  <%= f.submit "add a comment", class: "btn btn-outline-dark" %>
 <% end %>
 
 <% if song_request.user == current_user %>

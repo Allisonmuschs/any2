@@ -1,12 +1,23 @@
+
+<div class ="form">
+<h1 class ="header-text">Add your song request</h1>
+</div>
+<%= simple_form_for [@event, SongRequest.new] do |sg| %>
+  <%= sg.input :input %>
+  <%= sg.label "Audio File" %>
+  <%= sg.file_field :song_file %>
+  <%= sg.submit "submit track" %>
+
+<% end %>
 <div class="container">
   <h1><%= @event.name %> - <%= @event.location %></h1>
   <h2><%= @event.artist %> - <%= @event.date.strftime("%d/%m/%Y %I:%M")%></h2>
 
 
-  <%= simple_form_for [@event, SongRequest.new] do |sg| %>
-    <%= sg.input :input %>
-    <%= sg.submit "add a song request", class: "btn btn-primary" %>
-  <% end %>
+  
+<h1 class="eventname"><%= @event.name %> - <%= @event.location %></h1>
+<h2 class="eventartist"><%= @event.artist %> - <%= @event.date.strftime("%d/%m/%Y %I:%M")%></h2>
+
 
 
     <% @event.song_requests.each do |song_request| %>
