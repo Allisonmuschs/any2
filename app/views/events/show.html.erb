@@ -4,14 +4,20 @@
   <h2 class="eventartist"><%= @event.artist %> - <%= @event.date.strftime("%d/%m/%Y %I:%M")%></h2>
 
 
+  <%= simple_form_for [@event, SongRequest.new] do |sg| %>
+    <%= sg.input :input %>
+    <%= sg.submit "add a song request", class: "btn btn-primary" %>
+  <% end %>
+
+
 <div class ="form">
-<h2 class ="header-text">Add your song request</h2>
+<h1 class ="header-text">Add your song request</h1>
 </div>
 <%= simple_form_for [@event, SongRequest.new] do |sg| %>
   <%= sg.input :input %>
   <%= sg.label "Audio File" %>
   <%= sg.file_field :song_file %>
-  <%= sg.submit "submit file" %>
+  <%= sg.submit "submit track" %>
 <% end %>
 
 
@@ -23,6 +29,10 @@
           <i class="<%= current_user.favorites.find_by(song_request: song_request).present? ? "fas" : "far" %> fa-star"></i>
           <% end %>
 
+
+
+<%= @event.song_requests.each do |song_request| %>
+<% end %>
       <%= render partial: 'song_requests/show', locals: {song_request: song_request} %>
       <% end %>
 
