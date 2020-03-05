@@ -10,13 +10,13 @@ gem 'rails', '5.2.4.1'
 gem 'redis'
 gem 'pg_search'
 
+
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass', '~> 5.12.0'
 gem 'sassc-rails'
 gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
-gem 'dotenv-rails', groups: [:development, :test]
 gem 'cloudinary', '~> 1.12.0'
 gem 'acts_as_votable'
 
@@ -30,5 +30,6 @@ group :development, :test do
   gem 'listen', '~> 3.0.5'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-  gem 'dotenv-rails'
+  # gem 'dotenv-rails'
+  gem 'dotenv-rails', groups: [:development, :test]
 end

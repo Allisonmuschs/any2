@@ -74,6 +74,7 @@ ActiveRecord::Schema.define(version: 2020_03_05_104429) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "event_id"
+    t.boolean "solved"
     t.index ["event_id"], name: "index_song_requests_on_event_id"
     t.index ["user_id"], name: "index_song_requests_on_user_id"
   end

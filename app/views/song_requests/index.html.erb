@@ -1,5 +1,5 @@
-<h1><%= @event.name %> - <%= @event.location %></h1>
-<h2><%= @event.artist %></h2>
+<h1 id="eventname"><%= @event.name %> - <%= @event.location %></h1>
+<h2 id="eventartist"><%= @event.artist %></h2>
 
 <ul>
 <% @song_requests.each do |sg| %>
