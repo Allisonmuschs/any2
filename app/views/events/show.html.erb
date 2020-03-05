@@ -1,7 +1,7 @@
 
 <div class="container">
-  <h1><%= @event.name %> - <%= @event.location %></h1>
-  <h2><%= @event.artist %> - <%= @event.date.strftime("%d/%m/%Y %I:%M")%></h2>
+  <h1 class="eventname"><%= @event.name %> - <%= @event.location %></h1>
+  <h2 class="eventartist"><%= @event.artist %> - <%= @event.date.strftime("%d/%m/%Y %I:%M")%></h2>
 
 
   <%= simple_form_for [@event, SongRequest.new] do |sg| %>
@@ -21,6 +21,7 @@
 <% end %>
 
 
+
     <% @event.song_requests.sort_by{|sr| sr.comments.length}.reverse.each do |song_request| %>
       <h2><%= song_request.id %></h2>
           <%= link_to song_request_favorites_path(song_request),
@@ -28,6 +29,9 @@
           <i class="<%= current_user.favorites.find_by(song_request: song_request).present? ? "fas" : "far" %> fa-star"></i>
           <% end %>
 
+
+
+        <%= @event.song_requests.each do |song_request| %>
 
       <%= render partial: 'song_requests/show', locals: {song_request: song_request} %>
       <% end %>
