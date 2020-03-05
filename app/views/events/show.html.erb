@@ -10,18 +10,11 @@
 
 <% end %>
 <div class="container">
-  <h1><%= @event.name %> - <%= @event.location %></h1>
-  <h2><%= @event.artist %> - <%= @event.date.strftime("%d/%m/%Y %I:%M")%></h2>
+  <h1 class="eventname"><%= @event.name %> - <%= @event.location %></h1>
+  <h2 class="eventartist"><%= @event.artist %> - <%= @event.date.strftime("%d/%m/%Y %I:%M")%></h2>
 
-
-  
-<h1 class="eventname"><%= @event.name %> - <%= @event.location %></h1>
-<h2 class="eventartist"><%= @event.artist %> - <%= @event.date.strftime("%d/%m/%Y %I:%M")%></h2>
-
-
-
-    <% @event.song_requests.each do |song_request| %>
-      <h2><%= song_request.id %></h2>
+  <% @event.song_requests.each do |song_request| %>
+      <p><%= song_request.id %></p>
 
 
       <%= render partial: 'song_requests/show', locals: {song_request: song_request} %>
