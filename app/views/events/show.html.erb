@@ -1,3 +1,4 @@
+
 <div class ="form">
 <h1 class ="header-text">Add your song request</h1>
 </div>
@@ -8,19 +9,25 @@
   <%= sg.submit "submit track" %>
 
 <% end %>
+<div class="container">
+  <h1><%= @event.name %> - <%= @event.location %></h1>
+  <h2><%= @event.artist %> - <%= @event.date.strftime("%d/%m/%Y %I:%M")%></h2>
 
+
+  
 <h1 class="eventname"><%= @event.name %> - <%= @event.location %></h1>
 <h2 class="eventartist"><%= @event.artist %> - <%= @event.date.strftime("%d/%m/%Y %I:%M")%></h2>
 
 
 
-  <% @event.song_requests.each do |song_request| %>
-    <h2><%= song_request.id %></h2>
+    <% @event.song_requests.each do |song_request| %>
+      <h2><%= song_request.id %></h2>
 
 
-    <%= render partial: 'song_requests/show', locals: {song_request: song_request} %>
-    <% end %>
+      <%= render partial: 'song_requests/show', locals: {song_request: song_request} %>
+      <% end %>
 
 
 
-  <%= link_to "Back to all events", events_path %>
+    <%= link_to "Back to all events", events_path %>
+</div>
