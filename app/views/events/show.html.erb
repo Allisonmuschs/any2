@@ -1,7 +1,3 @@
-<h1 class="eventname"><%= @event.name %> - <%= @event.location %></h1>
-<h2 class="eventartist"><%= @event.artist %> - <%= @event.date.strftime("%d/%m/%Y %I:%M")%></h2>
-
-
 <div class ="form">
 <h1 class ="header-text">Add your song request</h1>
 </div>
@@ -11,9 +7,11 @@
   <%= sg.file_field :song_file %>
   <%= sg.submit "submit track" %>
 
-<%= link_to "Back", root_path%>
-
 <% end %>
+
+<h1 class="eventname"><%= @event.name %> - <%= @event.location %></h1>
+<h2 class="eventartist"><%= @event.artist %> - <%= @event.date.strftime("%d/%m/%Y %I:%M")%></h2>
+
 
 
   <% @event.song_requests.each do |song_request| %>
