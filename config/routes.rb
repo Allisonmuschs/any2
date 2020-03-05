@@ -14,6 +14,10 @@ Rails.application.routes.draw do
     resources :song_requests, except: [:destroy, :update]
   end
 
+  resources :song_requests do
+    resources :favorites, only: [:create, :destroy]
+  end
+
   resources :song_requests, only: [:destroy, :update]
 
   resources :song_requests do
@@ -29,7 +33,10 @@ Rails.application.routes.draw do
 
   resources :comments, only: [:edit, :update, :destroy]
 
-
-
+  resources :comments do
+    member do
+      put 'like'
+    end
+  end
 
 end

@@ -26,7 +26,7 @@ class SongRequestsController < ApplicationController
     @event = @song_request.event
   end
 
-def edit
+  def edit
     @song_request = SongRequest.find(params[:id])
   end
 

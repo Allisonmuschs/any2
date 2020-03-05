@@ -1,0 +1,12 @@
+// 1. creer une fonction qui va chercher le boite avec le compteur de like
+// 2. updater la valeur des likes
+
+<% if current_user.liked? @comment %>
+ document.querySelector("#comment-<%= @comment.id %>").className = "like-btn liked";
+document.querySelector("#comment-<%= @comment.id %>").innerHTML= "<%= @comment.get_upvotes.size %>";
+
+<% else %>
+ document.querySelector("#comment-<%= @comment.id %>").className = "like-btn";
+document.querySelector("#comment-<%= @comment.id %>").innerHTML= "<%= @comment.get_upvotes.size %>";
+
+<% end %>
