@@ -8,5 +8,8 @@ class PagesController < ApplicationController
     @events = current_user.events
   end
 
+  def library
+    @song_requests = SongRequest.where(solved: :true)
+  end
 
 end
