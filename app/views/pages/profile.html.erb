@@ -26,5 +26,10 @@
  <% end  %>
 </ul>
 
-
+<h2>Favorites SG</h2>
+<ul>
+  <% current_user.favorites.each do |fav| %>
+    <li> <%= fav.song_request.input %></li>
+  <% end %>
+</ul>
 

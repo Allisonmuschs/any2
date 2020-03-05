@@ -23,6 +23,16 @@ class CommentsController < ApplicationController
     end
   end
 
+  def like
+    @comment = Comment.find(params[:id])
+    if !current_user.liked? @comment
+      @comment.liked_by current_user
+    elsif current_user.liked? @comment
+      # as the above method can also result nil if he is yet to vote
+      @comment.unliked_by current_user
+    end
+  end
+
   def destroy
     @comment = Comment.find(params[:id])
     if @comment.destroy

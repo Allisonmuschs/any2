@@ -1,5 +1,4 @@
 <div><%= song_request.input %>
-<%= song_request.song_file.attached? %>
 <% if song_request.song_file.attached? %>
 </div>
   <%= audio_tag(rails_blob_path(song_request.song_file, disposition: "attachment"), controls: true) %>
@@ -19,6 +18,6 @@
 
 
 <ul>
-  <%= render partial: 'comments/comment', collection: song_request.comments %>
+  <%= render partial: 'comments/comment', collection: song_request.comments.sort_by{|co| co.get_upvotes.size}.reverse %>
 </ul>
 
