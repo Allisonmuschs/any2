@@ -1,1 +1,14 @@
 // Specific CSS for your home-page
+
+#form {
+  max-width: 600px;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  // background-color: $slime;
+}
+
+
