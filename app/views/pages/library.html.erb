@@ -3,8 +3,8 @@
 
 <h2>All requests that found a match:</h2>
 
-<ul>
- <%= SongRequest.all.select { |sr| sr.solved == true } %>
-</ul>
 
-
+<% @song_requests.each do |sr| %>
+<li> <%= sr.input %> </li>
+<%= sr.event.name %>
+<% end %>
