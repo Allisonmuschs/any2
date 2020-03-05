@@ -26,7 +26,7 @@ class SongRequestsController < ApplicationController
     @event = @song_request.event
   end
 
-def edit
+  def edit
     @song_request = SongRequest.find(params[:id])
   end
 
@@ -43,6 +43,15 @@ def edit
     @song_request = SongRequest.find(params[:id])
     @song_request.destroy
     redirect_to event_path(@song_request.event)
+  end
+
+  def solved
+    @song_request = SongRequest.find(params[:id])
+    if @song_request.user == current_user
+    @song_request.solved = !@song_request.solved
+    @song_request.save
+    redirect_to @song_request.event
+  end
   end
 
   private
