@@ -1,20 +1,22 @@
-<h1><%= @event.name %> - <%= @event.location %></h1>
-<h2><%= @event.artist %> - <%= @event.date.strftime("%d/%m/%Y %I:%M")%></h2>
+<div class="container">
+  <h1><%= @event.name %> - <%= @event.location %></h1>
+  <h2><%= @event.artist %> - <%= @event.date.strftime("%d/%m/%Y %I:%M")%></h2>
 
 
-<%= simple_form_for [@event, SongRequest.new] do |sg| %>
-  <%= sg.input :input %>
-  <%= sg.submit "add a song request", class: "btn btn-primary" %>
-<% end %>
+  <%= simple_form_for [@event, SongRequest.new] do |sg| %>
+    <%= sg.input :input %>
+    <%= sg.submit "add a song request", class: "btn btn-primary" %>
+  <% end %>
 
 
-  <% @event.song_requests.each do |song_request| %>
-    <h2><%= song_request.id %></h2>
+    <% @event.song_requests.each do |song_request| %>
+      <h2><%= song_request.id %></h2>
 
 
-    <%= render partial: 'song_requests/show', locals: {song_request: song_request} %>
-    <% end %>
+      <%= render partial: 'song_requests/show', locals: {song_request: song_request} %>
+      <% end %>
 
 
 
-  <%= link_to "Back to all events", events_path %>
+    <%= link_to "Back to all events", events_path %>
+</div>

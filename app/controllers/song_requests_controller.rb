@@ -45,6 +45,15 @@ def edit
     redirect_to event_path(@song_request.event)
   end
 
+  def solved
+    @song_request = SongRequest.find(params[:id])
+    if @song_request.user == current_user
+    @song_request.solved = !@song_request.solved
+    @song_request.save
+    redirect_to @song_request.event
+  end
+  end
+
   private
 
   def song_request_params

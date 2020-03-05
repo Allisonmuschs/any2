@@ -16,9 +16,18 @@
   <%= f.submit "add a comment", class: "btn btn-primary" %>
 <% end %>
 
-
+<% if song_request.user == current_user %>
+<%= link_to solved_song_request_path(song_request), method: :patch do %>
+  <% if song_request.solved == true  %>
+     <i class="fas fa-check" style = 'color:green' ></i>
+  <% else %>
+    <i class="fas fa-check" ></i>
+  <% end %>
+<% end %>
+<% end %>
 
 <ul>
   <%= render partial: 'comments/comment', collection: song_request.comments %>
 </ul>
+
 
