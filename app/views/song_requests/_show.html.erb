@@ -6,7 +6,7 @@
 
      <% if song_request.user == current_user %>
       <%= link_to 'edit', edit_event_song_request_path(@event.id, song_request.id)%>
-    - <%= link_to 'delete', song_request_path(song_request),
+     <%= link_to 'delete', song_request_path(song_request),
               method: :delete,
               data: { confirm: "Are you sure?" }%>
     <% end %>
@@ -14,15 +14,14 @@
   <%= f.input :input %>
   <%= f.submit "add a comment", class: "btn btn-outline-dark" %>
 <% end %>
-
 <% if song_request.user == current_user %>
 <%= link_to solved_song_request_path(song_request), method: :patch do %>
   <% if song_request.solved == true  %>
      <i class="fas fa-check" style = 'color:green' ></i>
   <% else %>
     <i class="fas fa-check" ></i>
+    <% end %>
   <% end %>
-<% end %>
 <% end %>
 
 <ul>
