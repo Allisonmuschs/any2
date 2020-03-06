@@ -29,7 +29,7 @@ class CommentsController < ApplicationController
       @comment.liked_by current_user
     elsif current_user.liked? @comment
       # as the above method can also result nil if he is yet to vote
-      @comment.unliked_by current_user
+      @comment.disliked_by current_user
     end
   end
 
