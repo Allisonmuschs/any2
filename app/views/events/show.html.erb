@@ -25,6 +25,7 @@
 
 
 
+
 <% @event.song_requests.each do |song_request| %>
 <% end %>
       <%= render partial: 'song_requests/show', locals: {song_request: song_request} %>
@@ -32,6 +33,5 @@
 
 
     <%= link_to "Back to all events", events_path %>
-
-</div>
-
+  </div>
+<% end %>
