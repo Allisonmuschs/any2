@@ -10,7 +10,7 @@ class SongRequest < ApplicationRecord
 
 
   def top_comment
-    all_comments.sort_by{|co| co.get_upvotes.size}.reverse.first
+    all_comments.compact.sort_by{|co| co.get_upvotes.size}.reverse.first
   end
 
   def all_comments
