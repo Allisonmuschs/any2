@@ -1,13 +1,7 @@
 
 <div class="container">
   <h1 class="eventname"><%= @event.name %> - <%= @event.location %></h1>
-  <h2 class="eventartist"><%= @event.artist %> - <%= @event.date.strftime("%d/%m/%Y %I:%M")%></h2>
-
-
-  <%= simple_form_for [@event, SongRequest.new] do |sg| %>
-    <%= sg.input :input %>
-    <%= sg.submit "add a song request", class: "btn btn-primary" %>
-  <% end %>
+  <h2 class="eventartist"><%= @event.city %> - <%=@event.artist %> - <%= @event.date.strftime("%d/%m/%Y %I:%M")%></h2>
 
 
 <div class ="form">
@@ -17,7 +11,7 @@
   <%= sg.input :input %>
   <%= sg.label "Audio File" %>
   <%= sg.file_field :song_file %>
-  <%= sg.submit "submit track" %>
+  <%= sg.submit "submit" %>
 <% end %>
 
 
@@ -31,7 +25,7 @@
 
 
 
-<%= @event.song_requests.each do |song_request| %>
+<% @event.song_requests.each do |song_request| %>
 <% end %>
       <%= render partial: 'song_requests/show', locals: {song_request: song_request} %>
       <% end %>

@@ -1,9 +1,9 @@
-
+<div class="container">
   <h1>Events</h1>
   <div class="cards">
     <% @events.each do |event| %>
     <li>
-    <%= link_to event.name,  event_path(event) %> -
+    <%= link_to event.name,  event_path(event) %> - <%= event.location %>, <%= event.city %> -
       <% if event.user == current_user %>
         <%= link_to 'edit', edit_event_path(event)%>
         <%= link_to "delete", event_path(event),
@@ -26,4 +26,4 @@ class: "form-control",
   %>
   <%= submit_tag "Search", class: "btn btn-primary" %>
   <% end %>
-
+</div>
