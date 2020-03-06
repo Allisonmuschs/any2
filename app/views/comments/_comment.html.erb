@@ -17,8 +17,8 @@
   </li>
 
   <%= simple_form_for [comment, Comment.new] do |f| %>
-    <%= f.input :input %>
-    <%= f.submit "answer", class: "btn btn-primary" %>
+    <%= f.input :input, :label => "Answer"%>
+    <%= f.submit "answer", class: "btn btn-outline-dark" %>
   <% end %>
 
   <ul>

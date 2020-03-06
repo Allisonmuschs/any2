@@ -6,7 +6,7 @@
 
 
   <% @song_requests.each do |sr| %>
-  <li><%= sr.event.name %> - <%= link_to sr.input, event_path(sr.event) %>:
+  <li><%= sr.event.name %> - <%= link_to sr.input, event_path(sr.event) %>
       <%= sr.top_comment.input %>
   </li>
   <% end %>
