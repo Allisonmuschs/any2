@@ -1,7 +1,14 @@
 <div><%= song_request.input %>
 <% if song_request.song_file.attached? %>
 </div>
-  <%= audio_tag(rails_blob_path(song_request.song_file, disposition: "attachment"), controls: true) %>
+  <%#= audio_tag(rails_blob_path(song_request.song_file, disposition: "attachment"), controls: true) %>
+
+<%= cl_video_tag(song_request.song_file.key , :controls => true,
+  :fallback_content => "Your browser does not support HTML5 video tags." ) %>
+
+
+
+
 <% end %>
 
      <% if song_request.user == current_user %>
