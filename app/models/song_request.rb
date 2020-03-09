@@ -14,7 +14,7 @@ class SongRequest < ApplicationRecord
   end
 
   def all_comments
-    return if self.comments.empty?
+    return [] if self.comments.empty?
     (self.comments + self.comments.flat_map(&:all_comments)).flatten.uniq
   end
 end

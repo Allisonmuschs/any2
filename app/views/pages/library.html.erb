@@ -7,7 +7,7 @@
 
   <% @song_requests.each do |sr| %>
   <li><%= sr.event.name %> - <%= link_to sr.input, event_path(sr.event) %>
-      <%= sr.top_comment.input %>
+      <%= sr.top_comment.nil? ? "NO COMMENTS YET" : sr.top_comment.input %>
   </li>
   <% end %>
 </div>
