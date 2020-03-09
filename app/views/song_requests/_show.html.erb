@@ -1,7 +1,18 @@
 <div><%= song_request.input %>
+  <%= link_to song_request_favorites_path(song_request),
+        method: :post do %>
+        <i class="<%= current_user.favorites.find_by(song_request: song_request).present? ? "fas" : "far" %> fa-star"></i>
+        <% end %>
 <% if song_request.song_file.attached? %>
 </div>
-  <%= audio_tag(rails_blob_path(song_request.song_file, disposition: "attachment"), controls: true) %>
+  <%#= audio_tag(rails_blob_path(song_request.song_file, disposition: "attachment"), controls: true) %>
+
+<%= cl_video_tag(song_request.song_file.key , :controls => true,
+  :fallback_content => "Your browser does not support HTML5 video tags." ) %>
+
+
+
+
 <% end %>
 
      <% if song_request.user == current_user %>
@@ -11,11 +22,11 @@
               data: { confirm: "Are you sure?" }%>
     <% end %>
 <%= simple_form_for [song_request, Comment.new] do |f| %>
-  <%= f.input :input %>
+  <%= f.input :input, :label => "Comment"%>
   <%= f.submit "add a comment", class: "btn btn-outline-dark" %>
 <% end %>
 
-<% if song_request.user == current_user %>
+<% if song_request.user == current_user && song_request.comments.present? %>
 <%= link_to solved_song_request_path(song_request), method: :patch do %>
   <% if song_request.solved == true  %>
      <i class="fas fa-check" style = 'color:green' ></i>

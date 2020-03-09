@@ -6,4 +6,9 @@ class Comment < ApplicationRecord
 
   validates :input, presence: true
   validates :commentable_type, presence: true
+
+  def all_comments
+    return if self.comments.empty?
+    (self.comments + self.comments.flat_map(&:all_comments)).flatten.compact.uniq
+  end
 end

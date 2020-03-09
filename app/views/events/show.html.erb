@@ -1,15 +1,21 @@
 
 <div class="container">
-  <h1 class="eventname"><%= @event.name %> - <%= @event.location %></h1>
-  <h2 class="eventartist"><%= @event.artist %> - <%= @event.date.strftime("%d/%m/%Y %I:%M")%></h2>
+  <h1 class="eventname"><%= @event.name %> @ <%= @event.location %></h1>
+  <h2 class="eventartist"><%= @event.city %> - <%=@event.artist %> - <%= @event.date.strftime("%d/%m/%Y - %I:%M")%></h2>
 
+
+  <div class ="form">
+  </div>
 
   <%= simple_form_for [@event, SongRequest.new] do |sg| %>
-    <%= sg.input :input %>
-    <%= sg.submit "add a song request", class: "btn btn-primary" %>
+    <%= sg.input :input, :label => "Song request" %>
+    <%= sg.label "Audio File" %>
+    <%= sg.file_field :song_file %>
+    <%= sg.submit "submit" %>
   <% end %>
 
 
+<<<<<<< HEAD
 <div class ="form">
 <h1 class ="header-text">Add your song request</h1>
 </div>
@@ -33,11 +39,17 @@
 
         <%= @event.song_requests.each do |song_request| %>
 
+=======
+  <div class="sr-header"
+  <% @event.song_requests.sort_by{|sr| sr.comments.length}.reverse.each do |song_request| %>
+    <h2><%= link_to song_request.user.username, user_profiles_path(song_request.user_id) %></h2>
+>>>>>>> master
       <%= render partial: 'song_requests/show', locals: {song_request: song_request} %>
       <% end %>
 
 
-    <%= link_to "Back to all events", events_path %>
+      <%= link_to "Back to all events", events_path %>
+      <% @event.song_requests.each do |song_request| %>
+      <% end %>
 
 </div>
-
