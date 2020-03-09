@@ -1,27 +1,18 @@
 // Specific CSS for your home-page
 
-#form {
-  max-width: 600px;
-}
 
-body {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  // background-color: $slime;
-}
 
-.header {
-  letter-spacing: 1.5px;
-  margin-bottom: 10px;
+// .header {
+//   letter-spacing: 1.5px;
+//   margin-bottom: 10px;
 
-}
-.logo {
-  width: 40%;
-  margin-bottom: 15px;
-}
+// }
+// .logo {
+//   width: 40%;
+//   margin-bottom: 15px;
+// }
 
-.cards{
+.cards_pro{
   background-color: black;
 
 }
@@ -30,25 +21,14 @@ body {
   font-size: 20px;
 
 }
-.container {
+.container_pro {
   border-radius: 20px;
   border: 2px solid;
   box-sizing: border-box;
   background: #FFFFFF;
   padding: 30px;
   height: 400px;
+  display: flex;
 
 }
 
-.search-bar {
-    display: block;
-    background: white;
-    border-radius: 50px;
-    border-width: 1px;
-    border-color: black;
-    // max-width: 700px;
-    padding-left: 15px;
-    font-weight: 300;
-    width: 100%;
-
-}
