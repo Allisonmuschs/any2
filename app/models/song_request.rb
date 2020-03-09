@@ -7,8 +7,6 @@ class SongRequest < ApplicationRecord
 
   validates :input, presence: true
 
-
-
   def top_comment
     all_comments.compact.sort_by{|co| co.get_upvotes.size}.reverse.first
   end
