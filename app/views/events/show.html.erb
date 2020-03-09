@@ -28,7 +28,7 @@
                 method: :post do %>
           <i class="<%= current_user.favorites.find_by(song_request: song_request).present? ? "fas" : "far" %> fa-star"></i>
           <% end %>
-
+      <% end %>
 
 
         <%= @event.song_requests.each do |song_request| %>
