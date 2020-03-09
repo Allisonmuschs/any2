@@ -11,7 +11,8 @@ gem 'redis'
 gem 'pg_search'
 gem 'google-api-client', '>0.7'
 gem 'trollop', '~> 2.1', '>= 2.1.2'
-
+gem 'devise-bootstrap-form', '~> 0.2.0'
+gem 'bootstrap_form'
 
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass', '~> 5.12.0'
