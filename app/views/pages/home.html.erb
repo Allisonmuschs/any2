@@ -1,15 +1,27 @@
 <div class="container">
-<h1>ANY1</h1>
 
-<%= form_tag events_path, method: :get do %>
-<%= text_field_tag :query,
-params[:query],
-class: "form-control",
-  placeholder: "Find an event"
-  %>
-  <%= submit_tag "Search", class: "btn btn-primary" %>
-  <% end %>
-<br>
-<%= link_to "ALL EVENTS", events_path %> -
-<%= link_to "IDENTIFIED TRACKS" , library_path %>
+  <div class="cards">
+    <div class="home-card">
+      <img src="../assets/ANY1logo.png" alt="logo" class="logo">
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    </div>
+
+    <div class="home-card">
+      <h1 class="header">All events</h1>
+
+      <%= form_tag events_path, method: :get do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "search-bar",
+        placeholder: "Search"%>
+
+       <!--  <%= submit_tag "Search", class: "" %>
+        <% end %> -->
+      <br>
+      <%= link_to "ALL EVENTS", events_path %> -
+      <%= link_to "IDENTIFIED TRACKS" , library_path %>
+    </div>
+
+  </div>
+
 </div>
