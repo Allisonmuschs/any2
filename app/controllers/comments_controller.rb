@@ -2,7 +2,7 @@ class CommentsController < ApplicationController
   def create
     find_commentable
     @comment = @commentable.comments.new comment_params
-    @comment.url = parse_youtube(params[:comment][:url])
+    @comment.url = parse_youtube(params[:comment][:url]) if params[:comment][:url].present?
     @comment.user = current_user
     if @comment.save
       redirect_back fallback_location: root_path

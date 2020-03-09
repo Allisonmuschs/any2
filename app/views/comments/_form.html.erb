@@ -1,4 +1,6 @@
   <%= simple_form_for [@comment] do |f| %>
     <%= f.input :input %>
+    <%= f.input :url %>
+
     <%= f.submit "edit", class: "btn btn-primary" %>
   <% end %>

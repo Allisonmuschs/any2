@@ -15,15 +15,13 @@
   <% end %>
 
 
-  <div class="sr-header"
+  <div class="sr-header">
   <% @event.song_requests.sort_by{|sr| sr.comments.length}.reverse.each do |song_request| %>
     <h2><%= link_to song_request.user.username, user_profiles_path(song_request.user_id) %></h2>
       <%= render partial: 'song_requests/show', locals: {song_request: song_request} %>
-      <% end %>
+    <% end %>
 
       <%= link_to "Back to all events", events_path %>
-      <% @event.song_requests.each do |song_request| %>
-      <% end %>
 
 </div>
 

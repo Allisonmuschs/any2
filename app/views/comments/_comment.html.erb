@@ -2,13 +2,14 @@
 <li>
   <%= comment.input %>
 
-
+<% if comment.url.present? %>
   <iframe width="560"
         height="315"
         src="https://www.youtube.com/embed/<%= comment.url %>"
         frameborder="0"
         allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
         allowfullscreen></iframe>
+  <% end %>
 
   <% if comment.user == current_user %>
     <%= comment.votes_for.size %>
@@ -37,19 +38,14 @@
     - <%= link_to 'delete', comment_path(comment),
               method: :delete,
               data: { confirm: "Are you sure?" }%>
-
-
-
+<% end %>
+</li>
 
   <%= simple_form_for [comment, Comment.new] do |f| %>
-
-    <%= f.input :input %>
-    <%= f.input :url %>
-    <%= f.submit "answer", class: "btn btn-primary" %>
-
     <%= f.input :input, :label => "Answer"%>
-    <%= f.submit "answer", class: "btn btn-outline-dark" %>
+    <%= f.input :url, :label => "YouTube Url"%>
 
+    <%= f.submit "answer", class: "btn btn-outline-dark" %>
   <% end %>
 
   <ul>

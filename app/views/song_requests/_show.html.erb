@@ -1,45 +1,45 @@
 
 <div><%= song_request.input %></div>
 
-<% if song_request.song_file.attached? %>
-  <%= audio_tag(rails_blob_path(song_request.song_file, disposition: "attachment"), controls: true) %>
 
-<div><%= song_request.input %>
-  <%= link_to song_request_favorites_path(song_request),
+
+<%= link_to song_request_favorites_path(song_request),
         method: :post do %>
         <i class="<%= current_user.favorites.find_by(song_request: song_request).present? ? "fas" : "far" %> fa-star"></i>
-        <% end %>
-<% if song_request.song_file.attached? %>
-</div>
-  <%#= audio_tag(rails_blob_path(song_request.song_file, disposition: "attachment"), controls: true) %>
+<% end %>
 
-<%= cl_video_tag(song_request.song_file.key , :controls => true,
-  :fallback_content => "Your browser does not support HTML5 video tags." ) %>
+<% if song_request.song_file.attached? %>
+
+  <%= cl_video_tag(song_request.song_file.key , :controls => true,
+              :fallback_content => "Your browser does not support HTML5 video tags." ) %>
 
 
 
 <% end %>
 
-     <% if song_request.user == current_user %>
-       <%= link_to 'edit', edit_event_song_request_path(@event.id, song_request.id) %>
-       <%= link_to 'delete', song_request_path(song_request),
+<% if song_request.user == current_user %>
+  <%= link_to 'edit', edit_event_song_request_path(@event.id, song_request.id) %>
+  <%= link_to 'delete', song_request_path(song_request),
                     method: :delete,
                     data: { confirm: "Are you sure?" }%>
-      <% end %>
+<% end %>
+
 
 <%= simple_form_for [song_request, Comment.new] do |f| %>
   <%= f.input :input, :label => "Comment"%>
+  <%= f.input :url, :label => "YouTube  Url"%>
+
   <%= f.submit "add a comment", class: "btn btn-outline-dark" %>
 <% end %>
 
 
 <% if song_request.user == current_user && song_request.comments.present? %>
-<%= link_to solved_song_request_path(song_request), method: :patch do %>
-  <% if song_request.solved == true  %>
-     <i class="fas fa-check" style = 'color:green' ></i>
-  <% else %>
-    <i class="fas fa-check" ></i>
-
+  <%= link_to solved_song_request_path(song_request), method: :patch do %>
+    <% if song_request.solved == true  %>
+       <i class="fas fa-check" style = 'color:green' ></i>
+    <% else %>
+      <i class="fas fa-check" ></i>
+   <% end %>
   <% end %>
 <% end %>
 
