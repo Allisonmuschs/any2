@@ -1,34 +1,31 @@
-// Specific CSS for your home-page
+.header {
+  letter-spacing: 1.5px;
+  margin-bottom: 10px;
 
-
-
-// .header {
-//   letter-spacing: 1.5px;
-//   margin-bottom: 10px;
-
-// }
-// .logo {
-//   width: 40%;
-//   margin-bottom: 15px;
-// }
-
-.cards_pro{
-  background-color: black;
-
+}
+.logo_p {
+  width: 40%;
+  margin-bottom: 15px;
 }
 
 .items {
   font-size: 20px;
 
 }
-.container_pro {
+
+.pro-card {
+  background-color: black;
+}
+
+.main-card {
+  display: flex;
+  flex-direction: column;
   border-radius: 20px;
   border: 2px solid;
   box-sizing: border-box;
   background: #FFFFFF;
   padding: 30px;
-  height: 400px;
-  display: flex;
-
+  height: 300px;
 }
+
 
