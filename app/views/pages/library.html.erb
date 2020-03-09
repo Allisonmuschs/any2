@@ -1,10 +1,15 @@
-<h1>Library</h1>
+<div class="container">
+  <h1>Library</h1>
 
 
-<h2>All requests that found a match:</h2>
+  <h2>All requests that found a match:</h2>
 
 
-<% @song_requests.each do |sr| %>
-<li> <%= sr.input %> </li>
-<%= sr.event.name %>
-<% end %>
+  <% @song_requests.each do |sr| %>
+  <li><%= sr.event.name %> - <%= link_to sr.input, event_path(sr.event) %>
+      <%= sr.top_comment.input %>
+  </li>
+  <% end %>
+</div>
+
+ <%= link_to "Go to profile", user_profiles_path(current_user) %>

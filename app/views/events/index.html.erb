@@ -1,4 +1,4 @@
-
+<div class="container">
   <h1>Events</h1>
   <div class="cards">
     <% @events.each do |event| %>
@@ -11,6 +11,14 @@
                 data: { confirm: "Are you sure?" }%>
         <% end %>
       </li>
+    <li>
+    <%= link_to event.name,  event_path(event) %> - <%= event.location %>, <%= event.city %> -
+      <% if event.user == current_user %>
+        <%= link_to 'edit', edit_event_path(event)%>
+        <%= link_to "delete", event_path(event),
+              method: :delete,
+              data: { confirm: "Are you sure?" }%>
+              <% end %>
     <% end %>
   </div>
 
@@ -25,5 +33,5 @@
     placeholder: "Find an event"
     %>
   <%= submit_tag "Search", class: "btn btn-primary" %>
-<% end %>
-
+  <% end %>
+</div>

@@ -2,6 +2,7 @@
 <li>
   <%= comment.input %>
 
+
   <iframe width="560"
         height="315"
         src="https://www.youtube.com/embed/<%= comment.url %>"
@@ -22,6 +23,15 @@
 
 
     <span class="likes-count" id="comment-<%= comment.id%>"> <%= comment.get_upvotes.size %> </span>
+
+ <%= comment.votes_for.size %>
+<%= link_to like_comment_path(comment), class:"like-btn", method: :put, remote: true do %>
+      <span><p><i class="<%= current_user.liked?(comment) ? "fas" : "far" %> fa-heart"></i></p></span>
+<% end %>
+    <span class="likes-count" id="comment-<%= comment.id%>"> <%= comment.get_upvotes.size %> </span>
+
+ <% if comment.user == current_user %>
+
       <%= link_to 'edit', edit_comment_path(comment.id)%>
 
     - <%= link_to 'delete', comment_path(comment),
@@ -32,13 +42,19 @@
 
 
   <%= simple_form_for [comment, Comment.new] do |f| %>
+
     <%= f.input :input %>
     <%= f.input :url %>
     <%= f.submit "answer", class: "btn btn-primary" %>
+
+    <%= f.input :input, :label => "Answer"%>
+    <%= f.submit "answer", class: "btn btn-outline-dark" %>
+
   <% end %>
 
   <ul>
     <%= render partial: 'comments/comment', collection: comment.comments.sort_by{|co| co.get_upvotes.size }.reverse  %>
   </ul>
 </li>
+
 
