@@ -1,8 +1,8 @@
 <div class="container">
 
-<h1>Profile page of <%= @username %></h1>
+<h1>Profile page of <%= @username.capitalize %></h1>
 
-
+<div class="items">
 <h2>Comments:</h2>
 <ul>
  <% @comments.each do |c| %>
@@ -10,18 +10,19 @@
  <% end  %>
  </ul>
 
+
 <h2>Song Requests:</h2>
-<ul>
- <% @song_requests.each do |sr| %>
- <%= sr.input  %>
- <% end  %>
+  <ul>
+   <% @song_requests.each do |sr| %>
+   <%= sr.input  %>
+   <% end  %>
 </ul>
 
 <h2>Events created:</h2>
 <ul>
- <% @events.each do |e| %>
- <%= e.name  %>
- <% end  %>
+   <% @events.each do |e| %>
+   <%= e.name  %>
+   <% end  %>
 </ul>
 
 <h2>Favorites Song Requests</h2>
@@ -30,4 +31,5 @@
     <li> <%= fav.song_request.event.location %> - <%= fav.song_request.event.name %> - <%= link_to fav.song_request.input, event_song_request_path(id: fav.song_request.id, event_id:fav.song_request.event.id)  %></li>
   <% end %>
 </ul>
+</div>
 </div>
