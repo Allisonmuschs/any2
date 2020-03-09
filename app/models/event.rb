@@ -11,6 +11,7 @@ class Event < ApplicationRecord
     has_one_attached :song_file
   validates :name, presence: true, uniqueness: true
   validates :location, presence: true, uniqueness: { scope: :date }
+  validates :city, presence: true
   validates :artist, presence: true
   validates :date, presence: true
 end
