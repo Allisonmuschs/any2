@@ -12,8 +12,8 @@ User.destroy_all
 p user = User.create(email: "a@gmail.com", username: 'hello', password: 123123)
 p event1 = Event.create(name: 'Party hard', location: 'Brussels', date: Time.now, artist: 'DJ K', user: user)
 p song_r = SongRequest.create(input: "hello what s this song", event: event1, user: user)
-p co1 = Comment.create(commentable: song_r, user: user, input: "hi first comment")
-p co2 = Comment.create(commentable: co1, user: user, input: "hi second comment")
+p co1 = Comment.create(commentable: song_r, user: user, input: "hi first comment", url: "cq0jZ9h-NrI")
+p co2 = Comment.create(commentable: co1, user: user, input: "hi second comment", url: "slgEYXJ1sZQ")
 
 user = User.create(email: 'seed@seed.seed', password: 'password', password_confirmation: 'password', username: 'testibo')
 

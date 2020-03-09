@@ -2,16 +2,16 @@
   <h1>Events</h1>
   <div class="cards">
     <% @events.each do |event| %>
-    <li>
-    <%= link_to event.name,  event_path(event) %> -
-      <% if event.user == current_user %>
-        <%= link_to 'edit', edit_event_path(event)%>
-        <%= link_to "delete", event_path(event),
-              method: :delete,
-              data: { confirm: "Are you sure?" }%>
-              <% end %>
+      <li>
+      <%= link_to event.name,  event_path(event) %> -
+        <% if event.user == current_user %>
+          <%= link_to 'edit', edit_event_path(event)%>
+          <%= link_to "delete", event_path(event),
+                method: :delete,
+                data: { confirm: "Are you sure?" }%>
+        <% end %>
+      </li>
     <% end %>
-    </li>
   </div>
 
 <br>
@@ -19,11 +19,11 @@
 <br>
 
 <%= form_tag events_path, method: :get do %>
-<%= text_field_tag :query,
-params[:query],
-class: "form-control",
-  placeholder: "Find an event"
-  %>
+  <%= text_field_tag :query,
+  params[:query],
+  class: "form-control",
+    placeholder: "Find an event"
+    %>
   <%= submit_tag "Search", class: "btn btn-primary" %>
-  <% end %>
+<% end %>
 

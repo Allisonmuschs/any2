@@ -9,6 +9,8 @@ gem 'puma'
 gem 'rails', '5.2.4.1'
 gem 'redis'
 gem 'pg_search'
+gem 'google-api-client', '>0.7'
+gem 'trollop', '~> 2.1', '>= 2.1.2'
 
 
 gem 'autoprefixer-rails'

@@ -10,32 +10,32 @@
   <% end %>
 
 
-<div class ="form">
-<h1 class ="header-text">Add your song request</h1>
-</div>
-<%= simple_form_for [@event, SongRequest.new] do |sg| %>
-  <%= sg.input :input %>
-  <%= sg.label "Audio File" %>
-  <%= sg.file_field :song_file %>
-  <%= sg.submit "submit track" %>
-<% end %>
+
+  <h1 class ="header-text">Add your song request</h1>
+
+  <%= simple_form_for [@event, SongRequest.new] do |sg| %>
+    <%= sg.input :input %>
+    <%= sg.label "Audio File" %>
+    <%= sg.file_field :song_file %>
+    <%= sg.submit "submit track" %>
+  <% end %>
 
 
-    <% @event.song_requests.sort_by{|sr| sr.comments.length}.reverse.each do |song_request| %>
+  <% @event.song_requests.sort_by{|sr| sr.comments.length}.reverse.each do |song_request| %>
       <h2><%= song_request.id %></h2>
           <%= link_to song_request_favorites_path(song_request),
-                method: :post do %>
-          <i class="<%= current_user.favorites.find_by(song_request: song_request).present? ? "fas" : "far" %> fa-star"></i>
-          <% end %>
+                  method: :post do %>
+      <i class="<%= current_user.favorites.find_by(song_request: song_request).present? ? "fas" : "far" %> fa-star"></i>
+    <% end %>
+  <% end %>
 
 
 
-<%= @event.song_requests.each do |song_request| %>
+  <% @event.song_requests.each do |song_request| %>
+    <%= render partial: 'song_requests/show', locals: { song_request: song_request } %>
+  <% end %>
 
-      <%= render partial: 'song_requests/show', locals: {song_request: song_request} %>
-      <% end %>
 
+  <%= link_to "Back to all events", events_path %>
+</div>
 
-    <%= link_to "Back to all events", events_path %>
-  </div>
-<% end %>

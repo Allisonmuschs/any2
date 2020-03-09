@@ -2,6 +2,7 @@ class CommentsController < ApplicationController
   def create
     find_commentable
     @comment = @commentable.comments.new comment_params
+    @comment.url = parse_youtube(params[:comment][:url])
     @comment.user = current_user
     if @comment.save
       redirect_back fallback_location: root_path
@@ -21,6 +22,11 @@ class CommentsController < ApplicationController
     else
       render :edit
     end
+  end
+
+
+  def search
+    ::YoutubeSearch.new.call('hello')
   end
 
   def like
@@ -44,8 +50,14 @@ class CommentsController < ApplicationController
 
   private
 
+
+  def parse_youtube url
+     regex = /(?:.be\/|\/watch\?v=|\/(?=p\/))([\w\/\-]+)/
+     url.match(regex)[1]
+  end
+
     def comment_params
-    params.require(:comment).permit(:input)
+    params.require(:comment).permit(:input, :url)
     end
 
     def find_commentable
