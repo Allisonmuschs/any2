@@ -1,5 +1,14 @@
-.container-create {
-  background-color: white;
+.background-card {
+  background-color: black;
+}
+
+
+.cards-create {
+  border-radius: 20px;
+  border: 2px solid;
+  box-sizing: border-box;
+  background: #FFFFFF;
+  padding: 30px;
   width: 100%;
 
   #event_name {
@@ -83,14 +92,19 @@
 
   .string.required {
     margin-left: auto;
+    font-family: Roboto;
+    font-size: 20px;
   }
 
   .datetime.required {
    margin-left: auto;
+   font-family: Roboto;
+   font-size: 20px;
   }
 
   .d-flex.flex-row.justify-content-between.align-items-center {
     margin-right: auto;
+    width: 650px;
   }
 }
 
@@ -112,3 +126,4 @@
   width: 300px;
   text-decoration: none;
 }
+
