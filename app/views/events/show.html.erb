@@ -9,13 +9,13 @@
       <h2 class="eventartist"><%= @event.date.strftime("%d/%m/%Y - %I:%M %p")%>, <%=@event.artist %></h2>
       </div>
 
-      <div class="marg-b">
+      <div class="marg-b card-form">
       <%= simple_form_for [@event, SongRequest.new] do |sg| %>
-        <%= sg.input :input, :label => "Find a track"%>
+        <%= sg.input :input, :label => "Ask for your track"%>
         <!-- # <%= sg.label "Audio File" %> -->
         <%= sg.file_field :song_file, class: 'd-none', id:'song-upload-field' %>
         <button id='song-upload'>Upload a file</button>
-        <%= sg.submit "submit", id: "song-upload" %>
+        <%= sg.submit "Submit", class:"file-submit" %>
       <% end %>
       </div>
 
