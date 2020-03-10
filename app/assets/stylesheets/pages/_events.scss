@@ -11,9 +11,17 @@
   justify-content: center;
   a {
     font-size: 25px;
-    text-decoration-style: none;
+    text-decoration: none;
     color: black;
+    &:hover {
+      color: red;
+      transform: scale(1.2);
+    }
   }
+  a.rotated:hover {
+    transform: rotate(-90deg) scale(1.2);
+  }
+
 }
 
 #h1List {
@@ -22,6 +30,5 @@
 }
 
 .rotated {
-  writing-mode: tb-rl;
-  transform: rotate(-180deg);
+  transform: rotate(-90deg);
 }
