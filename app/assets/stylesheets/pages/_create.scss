@@ -2,7 +2,6 @@
   background-color: black;
 }
 
-
 .cards-create {
   border-radius: 20px;
   border: 2px solid;
@@ -92,8 +91,10 @@
 
   .string.required {
     margin-left: auto;
+    font-weight: 400;
     font-family: Roboto;
     font-size: 20px;
+
   }
 
   .datetime.required {
