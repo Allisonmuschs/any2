@@ -14,6 +14,7 @@ class SongRequestsController < ApplicationController
     @event = Event.find(params[:event_id])
     @song_request.event = @event
     @song_request.user = current_user
+
     if @song_request.save
        redirect_to event_path(@event)
     else

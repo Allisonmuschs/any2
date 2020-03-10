@@ -1,0 +1,45 @@
+.event-show-card {
+  border-radius: 20px;
+  border: 2px solid;
+  box-sizing: border-box;
+  background-color: #FFFFFF;
+  padding: 30px;
+}
+
+.event-show-card, h2{
+  font-weight: 300;
+}
+
+.marg-b{
+  margin-bottom: 30px;
+}
+
+.form-control {
+  font-weight: 400;
+  border-radius: 50px;
+}
+
+#song_request_song_file{
+  // border-radius: 50px;
+}
+
+#song-upload {
+  border-radius: 30px;
+  border-color: black;
+  border-width:2px;
+}
+
+.file-submit{
+  border-radius: 30px;
+  border-color: black;
+  border-width:2px;
+}
+
+.card-form{
+  border-color: black;
+  border: 2px ;
+  background-color: lightgrey;
+  border-radius: 30px;
+  padding: 20px;
+
+}

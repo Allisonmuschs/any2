@@ -1,28 +1,11 @@
-<div class="container">
-  <h1>Events</h1>
-  <div class="cards">
-    <% @events.each do |event| %>
-    <li>
-    <%= link_to event.name,  event_path(event) %> - <%= event.location %>, <%= event.city %> -
-      <% if event.user == current_user %>
-        <%= link_to 'edit', edit_event_path(event)%>
-        <%= link_to "delete", event_path(event),
-              method: :delete,
-              data: { confirm: "Are you sure?" }%>
-              <% end %>
-    <% end %>
+<div class="container" data-events="<%= @events.map {|e| {name: e.name, link: event_path(e)}}.to_json %>">
+  <div class="background-card">
+    <h1 id="h1List">Events</h1>
+    <div class="cards-create" id="eventsContainer" >
+    </div>
   </div>
-
-<br>
-<%= link_to "Add a new event", new_event_path %>
-<br>
-
-<%= form_tag events_path, method: :get do %>
-  <%= text_field_tag :query,
-  params[:query],
-  class: "form-control",
-    placeholder: "Find an event"
-    %>
-  <%= submit_tag "Search", class: "btn btn-primary" %>
-  <% end %>
+  <%= link_to "Add a new event", new_event_path, class: "btn btn-add"%>
 </div>
+
+
+<%= javascript_pack_tag "displayEvents"  %>

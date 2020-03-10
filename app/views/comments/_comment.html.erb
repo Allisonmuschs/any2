@@ -1,14 +1,16 @@
 <li class= "comment-box">
 
-  <%# comment_iteration.size = comment_iteration.size - 1 %>
+<li>
+  <%= comment.input %>
 
- <div class="comment-left">
-                     <%= comment.votes_for.size %>
-          <%= link_to like_comment_path(comment), class:"like-btn", method: :put, remote: true do %>
-                <span><p><i class="<%= current_user.liked?(comment) ? "fas" : "far" %> fa-heart"></i></p></span>
-          <% end %>
-              <span class="likes-count" id="comment-<%= comment.id%>"> <%= comment.get_upvotes.size %> </span>
- </div>
+<% if comment.url.present? %>
+  <iframe width="560"
+        height="315"
+        src="https://www.youtube.com/embed/<%= comment.url %>"
+        frameborder="0"
+        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen></iframe>
+  <% end %>
 
 
 
