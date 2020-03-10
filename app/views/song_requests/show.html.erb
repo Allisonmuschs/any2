@@ -1,8 +1,9 @@
-<h1> <%= @song_request.input %></h1>
-<h2><%= @song_request.event.name %> <%= @song_request.event.location %></h2>
+<div class="container">
+  <h1 class="inputsr"> Song Request <strong><%= @song_request.input %></strong></h1>
+  <h2 class="infossr">  Recorded at <%= @song_request.event.name %>, <%= @song_request.event.location %></h2>
 
 
-<ul>
- <%= render partial: 'comments/comment', collection: @song_request.comments.sort_by{|co| co.get_upvotes.size}.reverse %>
-</ul>
-
+  <ul>
+   <%= render partial: 'comments/comment', collection: @song_request.comments.sort_by{|co| co.get_upvotes.size}.reverse %>
+  </ul>
+</div>

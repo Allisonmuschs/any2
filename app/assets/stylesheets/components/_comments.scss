@@ -1,0 +1,111 @@
+.comment-box {
+  display: flex;
+  justify-content: space-around;
+  width: 90%;
+}
+
+.comment-left {
+  display: flex;
+  background: white;
+  border-radius: 50px;
+  padding: 10px;
+  height: 70px;
+  width: 70px;
+  border: 3px solid;
+  margin-right: 10px;
+  justify-content: center;
+  align-items: center;
+
+  p {
+    font-size: 20px
+  }
+
+}
+
+.comment-right {
+background: white;
+width: 100%;
+border-radius: 50px;
+border: 3px solid;
+justify-content: center;
+padding: 20px ;
+margin-bottom: 50px;
+h3 {
+  font-size: 23px;
+}
+}
+
+.comment-details {
+  display: flex;
+  justify-content: flex-end;
+  background: white;
+  p {
+    font-size: 10px;
+  }
+}
+
+.comment-details-author {
+  display: flex;
+  margin-right: 22px
+}
+
+.comment-links {
+  display: flex;
+a {
+  text-decoration: none;
+  color: black;
+}
+a:hover {
+  color: black
+}
+}
+
+.comment-answer {
+  background: white;
+  align-items: center;
+  float: right;
+.btn-primary {
+  float: right;
+  color: black;
+  border-radius: 50px;
+  border: 2px solid;
+  background: white;
+  text-decoration: none;
+ }
+ .btn-primary:hover {
+  background: red;
+  color: white;
+  border: 2px solid;
+}
+.btn-primary:visited {
+  background: white;
+  color: black;
+  border: 2px solid;
+}
+.btn-primary:active {
+  background: white;
+  color: black;
+  border: 2px solid;
+}
+}
+
+
+.answer_to_answer {
+  background: red;
+}
+
+.span1 {
+  margin-right: 3px;
+}
+
+
+
+.span2 {
+  margin-right: 3px;
+}
+
+
+
+
+
+
