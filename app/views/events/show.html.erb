@@ -1,33 +1,40 @@
-
 <div class="container">
-  <h1 class="eventname"><%= @event.name %> @ <%= @event.location %></h1>
-   <% if @event.user == current_user %>
-            <%= link_to 'edit', edit_event_path(@event)%>
-            <%= link_to "delete", event_path(@event),
-                  method: :delete,
-                  data: { confirm: "Are you sure?" }%>
-                  <% end %>
-  <h2 class="eventartist"><%= @event.city %> - <%=@event.artist %> - <%= @event.date.strftime("%d/%m/%Y - %I:%M")%></h2>
 
 
-  <div class ="form">
+  <div class="cards">
+    <div class="event-show-card">
+      <%= image_tag "ANY1logo.png", alt:"logo", class: 'logo'%>
+    </div>
+    <div class="event-show-card">
+      <div class="marg-b">
+      <h1 class="eventname"><%= @event.name %> @<%= @event.location %>, <%= @event.city %></h1>
+      <h2 class="eventartist"><%= @event.date.strftime("%d/%m/%Y - %I:%M %p")%>, <%=@event.artist %></h2>
+      </div>
+
+      <div class="marg-b card-form">
+      <%= simple_form_for [@event, SongRequest.new] do |sg| %>
+        <%= sg.input :input, :label => "Ask for your track"%>
+        <!-- # <%= sg.label "Audio File" %> -->
+        <%= sg.file_field :song_file, class: 'd-none', id:'song-upload-field' %>
+        <button id='song-upload'>Upload a file</button>
+        <%= sg.submit "Submit", class:"file-submit" %>
+      <% end %>
+      </div>
+
+    <div class="sr-card">
+    </div>
+
+    <div class="sr-header">
+      <% @event.song_requests.sort_by{|sr| sr.comments.length}.reverse.each do |song_request| %>
+        <h2><%= link_to song_request.user.username, user_profiles_path(song_request.user_id) %></h2>
+          <%= render partial: 'song_requests/show', locals: {song_request: song_request} %>
+        <% end %>
+
+          <%= link_to "Back to all events", events_path %>
+    </div>
+
+    </div>
+
   </div>
-
-  <%= simple_form_for [@event, SongRequest.new] do |sg| %>
-    <%= sg.input :input, :label => "Song request" %>
-    <%= sg.label "Audio File" %>
-    <%= sg.file_field :song_file %>
-    <%= sg.submit "submit" %>
-  <% end %>
-
-
-  <div class="sr-header">
-  <% @event.song_requests.sort_by{|sr| sr.comments.length}.reverse.each do |song_request| %>
-    <h2><%= link_to song_request.user.username, user_profiles_path(song_request.user_id) %></h2>
-      <%= render partial: 'song_requests/show', locals: {song_request: song_request} %>
-    <% end %>
-
-      <%= link_to "Back to all events", events_path %>
-
 </div>
 

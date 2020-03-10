@@ -1,6 +1,11 @@
 <div class="container">
   <div class="cards">
     <div class="home-card">
+      <%= image_tag "ANY1logo.png", alt:"logo", class: 'logo'%>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    </div>
+
+    <div class="home-card">
       <h1 class="header">All events</h1>
       <%= form_tag events_path, method: :get do %>
       <%= text_field_tag :query,
