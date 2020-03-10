@@ -13,7 +13,7 @@
 <h2>Song Requests:</h2>
 <ul>
  <% @song_requests.each do |sr| %>
- <%= sr.input  %>
+ <li><%= sr.event.name %> - <%= link_to sr.input, event_path(sr.event) %>
  <% end  %>
 </ul>
 

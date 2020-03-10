@@ -1,56 +1,70 @@
+<li class= "comment-box">
 
-<li>
-  <%= comment.input %>
+  <%# comment_iteration.size = comment_iteration.size - 1 %>
 
-<% if comment.url.present? %>
-  <iframe width="560"
-        height="315"
-        src="https://www.youtube.com/embed/<%= comment.url %>"
-        frameborder="0"
-        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen></iframe>
-  <% end %>
+ <div class="comment-left">
+                     <%= comment.votes_for.size %>
+          <%= link_to like_comment_path(comment), class:"like-btn", method: :put, remote: true do %>
+                <span><p><i class="<%= current_user.liked?(comment) ? "fas" : "far" %> fa-heart"></i></p></span>
+          <% end %>
+              <span class="likes-count" id="comment-<%= comment.id%>"> <%= comment.get_upvotes.size %> </span>
+ </div>
 
-  <% if comment.user == current_user %>
-    <%= comment.votes_for.size %>
-    <%= link_to like_comment_path(comment), class:"like-btn", method: :put, remote: true do %>
-        <button class="btn btn-warning">
-          <span><p><i class="fa fa-thumbs-up fa-lg" aria-hidden="true"></i></p></span>
-        </button>
+
+
+  <div class="comment-right">
+    <h3><%= comment.input %></h3>
+
+    <% if comment.url.present? %>
+
+    <iframe width="560"
+    height="315"
+    src="https://www.youtube.com/embed/<%= comment.url %>"
+    frameborder="0"
+    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen></iframe>
+
     <% end %>
-  <% end %>
+
+    <div class='comment-details'>
+      <div class="comment-details-author">
+        <span class="span1"><p> Creation <%= comment.created_at %> </p></span>
+        <p> by <%= comment.user.username %></p>
+      </div>
 
 
+    <div class="comment-links">
+        <% if comment.user == current_user %>
+         <span class="span2"><p><%= link_to 'edit', edit_comment_path(comment.id)%> </p></span>
+          <p> <%= link_to 'delete', comment_path(comment),
+          method: :delete,
+          data: { confirm: "Are you sure?" }%></p>
+          <% end %>
+      </div>
+    </div>
 
+    <div class="comment-answer">
+      <p>
+  <a class="btn btn-primary" data-toggle="collapse" href="#collapse-<%= comment_counter %>" role="button" aria-expanded="false" aria-controls="collapseExample">
+    Answer
+  </a>
+</p>
+  <div class="collapse" id="collapse-<%= comment_counter %>">
+    <div class="card card-body">
+    <%= simple_form_for [comment, Comment.new] do |f| %>
+      <%= f.input :input, :label => "Answer"%>
+      <%= f.input :url, :label => "YouTube Url"%>
 
-    <span class="likes-count" id="comment-<%= comment.id%>"> <%= comment.get_upvotes.size %> </span>
+      <%= f.submit "post", class: "btn btn-primary"  %>
+      <% end %>
+    </div>
+  </div>
 
- <%= comment.votes_for.size %>
-<%= link_to like_comment_path(comment), class:"like-btn", method: :put, remote: true do %>
-      <span><p><i class="<%= current_user.liked?(comment) ? "fas" : "far" %> fa-heart"></i></p></span>
-<% end %>
-    <span class="likes-count" id="comment-<%= comment.id%>"> <%= comment.get_upvotes.size %> </span>
+    <ul>
+      <%= render partial: 'comments/comment', collection: comment.comments.sort_by{|co| co.get_upvotes.size }.reverse  %>
+    </ul>
 
- <% if comment.user == current_user %>
-
-      <%= link_to 'edit', edit_comment_path(comment.id)%>
-
-    - <%= link_to 'delete', comment_path(comment),
-              method: :delete,
-              data: { confirm: "Are you sure?" }%>
-<% end %>
-</li>
-
-  <%= simple_form_for [comment, Comment.new] do |f| %>
-    <%= f.input :input, :label => "Answer"%>
-    <%= f.input :url, :label => "YouTube Url"%>
-
-    <%= f.submit "answer", class: "btn btn-outline-dark" %>
-  <% end %>
-
-  <ul>
-    <%= render partial: 'comments/comment', collection: comment.comments.sort_by{|co| co.get_upvotes.size }.reverse  %>
-  </ul>
+  </div>
 </li>
 
 
