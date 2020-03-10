@@ -11,24 +11,19 @@
   margin-bottom: 15px;
 }
 
-// .items {
-//   font-size: 18px;
-
-// }
-
-
 
 .main-card {
+
   display: flex;
   flex-direction: column;
+  flex-position: flex-start;
   font-size: 18px;
-
   border-radius: 20px;
   border: 2px solid;
   box-sizing: border-box;
   background: #FFFFFF;
-  padding: 30px;
-  height: 300px;
+  padding: 20px;
+  // height: 300px;
 }
 
 

@@ -1,30 +1,31 @@
 <div class="cards">
     <h1>Profile page of <%= @username.capitalize %></h1>
-<div class="home-card">
+<div class="pro-card">
     <h2>Comments:</h2>
-<ul>
+
+<ul style='background: grey;'>
    <% @comments.each do |c| %>
-   <%= c.input  %>
+    <p><%= c.input  %></p>
    <% end  %>
  </ul>
 
 <h2>Song Requests:</h2>
-  <ul>
+  <ul style='background: lightgrey;'>
    <% @song_requests.each do |sr| %>
    <%= sr.input  %>
    <% end  %>
 </ul>
 
-<h2>Events created:</h2>
-  <ul>
+<h2 >Events created:</h2>
+  <ul style='background: grey;'>
      <% @events.each do |e| %>
-     <%= e.name  %>
-     <%= e.created_at %>
+     <%= e.name  %> - S
+     <%= e.created_at.strftime('%d-%m-%Y') %>
      <% end  %>
   </ul>
 
 <h2>Favorites Song Requests</h2>
-    <ul>
+    <ul style='background: lightgrey;'>
       <% current_user.favorites.each do |fav| %>
         <li> <%= fav.song_request.event.location %> - <%= fav.song_request.event.name %> - <%= link_to fav.song_request.input, event_song_request_path(id: fav.song_request.id, event_id:fav.song_request.event.id)  %></li>
       <% end %>

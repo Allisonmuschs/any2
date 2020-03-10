@@ -12,9 +12,9 @@
       <div class="marg-b">
       <%= simple_form_for [@event, SongRequest.new] do |sg| %>
         <%= sg.input :input, :label => "Find a track"%>
-        <!-- # <%= sg.label "Audio File" %> -->
-        <%= sg.file_field :song_file, class: 'd-none', id:'song-upload-field' %>
-        <button id='song-upload'>Upload a file</button>
+        <!-- # <%#= sg.label "Audio File" %> -->
+        <%= sg.input :song_file, as: :file,  class: 'd-none', id:'song-upload-field' %>
+        <!-- <button id='song-upload'>Upload a file</button> -->
         <%= sg.submit "submit", id: "song-upload" %>
       <% end %>
       </div>
