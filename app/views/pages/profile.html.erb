@@ -1,16 +1,12 @@
-<!-- <div class="container_pro"> -->
-
 <div class="cards">
-<h1>Profile page of <%= @username.capitalize %></h1>
-
+    <h1>Profile page of <%= @username.capitalize %></h1>
 <div class="home-card">
-<h2>Comments:</h2>
+    <h2>Comments:</h2>
 <ul>
- <% @comments.each do |c| %>
- <%= c.input  %>
- <% end  %>
+   <% @comments.each do |c| %>
+   <%= c.input  %>
+   <% end  %>
  </ul>
-
 
 <h2>Song Requests:</h2>
   <ul>
@@ -20,17 +16,18 @@
 </ul>
 
 <h2>Events created:</h2>
-<ul>
-   <% @events.each do |e| %>
-   <%= e.name  %>
-   <% end  %>
-</ul>
+  <ul>
+     <% @events.each do |e| %>
+     <%= e.name  %>
+     <%= e.created_at %>
+     <% end  %>
+  </ul>
 
 <h2>Favorites Song Requests</h2>
-<ul>
-  <% current_user.favorites.each do |fav| %>
-    <li> <%= fav.song_request.event.location %> - <%= fav.song_request.event.name %> - <%= link_to fav.song_request.input, event_song_request_path(id: fav.song_request.id, event_id:fav.song_request.event.id)  %></li>
-  <% end %>
-</ul>
-</div>
+    <ul>
+      <% current_user.favorites.each do |fav| %>
+        <li> <%= fav.song_request.event.location %> - <%= fav.song_request.event.name %> - <%= link_to fav.song_request.input, event_song_request_path(id: fav.song_request.id, event_id:fav.song_request.event.id)  %></li>
+      <% end %>
+    </ul>
+  </div>
 </div>
