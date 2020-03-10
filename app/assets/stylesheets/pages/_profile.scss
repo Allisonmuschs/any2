@@ -1,29 +1,26 @@
-.ul{
-  font-size: 14px;
-
 .header {
   letter-spacing: 1.5px;
   margin-bottom: 10px;
 
 }
-.logo_p {
-  width: 40%;
-  margin-bottom: 15px;
+
+.ul{
+  font-size: 20px;
+
+.pro-cards{
+  background-color: black;
+
 }
 
 
-.main-card {
-
-  display: flex;
-  flex-direction: column;
-  flex-position: flex-start;
-  font-size: 18px;
+.pro-card {
   border-radius: 20px;
   border: 2px solid;
   box-sizing: border-box;
   background: #FFFFFF;
-  padding: 20px;
-  // height: 300px;
+  padding: 30px;
+  height: 300px;
+
 }
 
 
