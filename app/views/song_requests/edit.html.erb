@@ -1,5 +1,12 @@
-<h1>Edit</h1>
+<div class='container'>
 
-<%= render "form", song_request: @song_request %>
+  <div class="cards">
+    <div class="home-card">
+      <h2>Edit your post</h2>
 
-<%= link_to "Back", root_path%>
+    <%= render "form", song_request: @song_request %>
+
+    <%= link_to "Back", root_path, class:"btn-edit"%>
+    </div>
+  </div>
+</div>
