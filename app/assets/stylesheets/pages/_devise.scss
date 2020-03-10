@@ -2,11 +2,12 @@
   display:flex;
   flex-direction:column;
   max-width: 300px;
-  // justify-content: left;
-  margin-left: 50px;
+  justify-content: left;
+  margin-left: 40px;
+
 }
 
-#user_email {
+#user_email, #user_username, #user_password_confirmation {
   border-radius: 20px;
   border: 1px solid #d1d1d1;
   box-shadow: inset 0px 1px 8px rgb(250, 115, 119);
