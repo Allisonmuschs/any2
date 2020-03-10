@@ -1,6 +1,6 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <%= link_to root_path, class: "navbar-brand" do %>
-    <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
+    <%= image_tag "https://res.cloudinary.com/dxtzparjx/image/upload/c_scale,w_300/v1583756325/any_1_imgs/any_1_cir_ddwfxn.png" %>
     <% end %>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -18,7 +18,9 @@
           <%= link_to "Messages", "#", class: "nav-link" %>
         </li>
         <li class="nav-item dropdown">
-          <%= image_tag "https://lh3.googleusercontent.com/proxy/j2ZPCi6QWmRtj5o-kFmnV5sKZzFY009pcjxwCyzx0oNG8mrSmREaMDI-ftJd_qKdsUDoDPq5xCth3UeHGnEob-pYlIaLfitquCsVH7ontVGJS7I4ZlOSF-vyeYSSljEEg1TOHKr6RWU4J5RTW-ADjZE4sFsHSMi2FRmw6w", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+
+          <%= image_tag "https://res.cloudinary.com/dxtzparjx/image/upload/c_scale,w_300/v1583756325/any_1_imgs/any_1_cir_ddwfxn.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
             <%= link_to "My Profile", user_profiles_path(current_user), class: "dropdown-item" %>
             <%= link_to "Another action", "#", class: "dropdown-item" %>

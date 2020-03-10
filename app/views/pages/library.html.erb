@@ -1,15 +1,18 @@
 <div class="container">
-  <h1>Library</h1>
+  <div class="background-card">
+    <div class="cards-create">
+      <h1 id= "h1create"> IDENTIFIED TRACKS</h1>
 
-
-  <h2>All requests that found a match:</h2>
-
-
-  <% @song_requests.each do |sr| %>
-  <li><%= sr.event.name %> - <%= link_to sr.input, event_path(sr.event) %>
-      <%= sr.top_comment.nil? ? "NO COMMENTS YET" : sr.top_comment.input %>
-  </li>
-  <% end %>
+    <% @song_requests.each do |sr| %>
+      <div class="original-request">
+        <div id="title"> ORIGINAL REQUEST </div>
+        <div id="area-sr"> <%= link_to sr.input, event_path(sr.event) %></div>
+        <div id="title"> MATCH </div>
+        <div id="area-sr"> <%= sr.top_comment.nil? ? "NO COMMENTS YET" : sr.top_comment.input %></div>
+      </div>
+    <% end %>
+    </div>
+  </div>
 </div>
 
- <%= link_to "Go to profile", user_profiles_path(current_user) %>
+ <%= link_to "Go to profile", user_profiles_path(current_user), class: "btn btn-add" %>
