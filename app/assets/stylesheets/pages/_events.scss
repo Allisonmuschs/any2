@@ -1,31 +1,27 @@
-.btn-search {
-  border-radius: 50px;
-  border-color: black;
-  border-width:2px;
-  justify-content: center;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  font-size: 35px;
-  margin-top: 40px;
-  margin-bottom: 50px;
-  width: 300px;
-  text-decoration: none;
+#eventsContainer {
+  height: 600px;
+  background-color: #f9fcfb;
+  position: relative;
 }
 
-.search-event {
+.event {
+  position: absolute;
   display: flex;
+  align-items: center;
+  justify-content: center;
+  a {
+    font-size: 25px;
+    text-decoration-style: none;
+    color: black;
+  }
 }
 
-.form-control {
-  background: white;
-  border-radius: 50px;
-  border-width:2px;
-  border-color: black;
-  box-shadow: 2px 3px 3px lightgray;
-  width: 500px;
-  height: 70px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+#h1List {
+  color: white;
+  text-align: center;
+}
+
+.rotated {
+  writing-mode: tb-rl;
+  transform: rotate(-180deg);
 }

@@ -30,7 +30,7 @@ Event_attribute = [
 }
 ]
 
-10.times do |e|
+100.times do |e|
   Event.create!(name: "Party#{e}", location: 'Fuse',city: "Brussels", date: Time.now, artist: 'Peggy F* Gou', user: user)
 end
 
