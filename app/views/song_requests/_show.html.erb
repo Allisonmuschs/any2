@@ -49,7 +49,9 @@
     </div>
 </div>
 
-
+<div style='margin: 20px 0;'>
+  <%= render partial: 'shared/svgs/yellow_line' %>
+</div>
 <%= render partial: 'comments/comment', collection: song_request.comments.sort_by{|co| co.get_upvotes.size}.reverse %>
 
 
