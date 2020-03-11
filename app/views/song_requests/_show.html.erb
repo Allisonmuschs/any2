@@ -12,27 +12,28 @@
                     data: { confirm: "Are you sure?" }%>
     <% end %>
   </span>
-    <% if song_request.song_file.attached? %>
-    <div>
-      <%= cl_video_tag(song_request.song_file.key , :controls => true,
-              :fallback_content => "Your browser does not support HTML5 video tags.",
-              :class =>"video-styling" )%>
-    <% end %>
-  <span>
-  <% if song_request.user == current_user && song_request.comments.present? %>
-    <%= link_to solved_song_request_path(song_request), method: :patch, remote: true do %>
-      <% if song_request.solved == true  %>
-        <div class="no-underline solved" id= "song_request-<%=song_request.id%>">
-          <span style = 'color:green'>Found it</span>
-        </div>
-      <% else %>
-        <div class="no-underline solved" id= "song_request-<%=song_request.id%>">
-          <span style = 'color:red'>Not found yet</span>
-        </div>
-     <% end %>
-    <% end %>
+
+  <% if song_request.song_file.attached? %>
+  <div>
+    <%= cl_video_tag(song_request.song_file.key , :controls => true,
+            :fallback_content => "Your browser does not support HTML5 video tags.",
+            :class =>"video-styling" )%>
   <% end %>
-  </span>
+    <span>
+      <% if song_request.user == current_user && song_request.comments.present? %>
+        <%= link_to solved_song_request_path(song_request), method: :patch, remote: true do %>
+          <% if song_request.solved == true  %>
+            <div class="no-underline solved" id= "song_request-<%=song_request.id%>">
+              <span style = 'color:green'>Found it</span>
+            </div>
+          <% else %>
+            <div class="no-underline solved" id= "song_request-<%=song_request.id%>">
+              <span style = 'color:red'>Not found yet</span>
+            </div>
+         <% end %>
+        <% end %>
+      <% end %>
+    </span>
   </div>
 </div>
 
@@ -42,14 +43,14 @@
       Comment
     </a>
   </p>
-    <div class="collapse"id="collapse-<%= song_request.id  %>">
-      <%= simple_form_for [song_request, Comment.new] do |f| %>
-        <%= f.input :input, :label => "Comment"%>
-        <%= f.input :url, :label => "YouTube  Url"%>
+  <div class="collapse"id="collapse-<%= song_request.id  %>">
+    <%= simple_form_for [song_request, Comment.new] do |f| %>
+      <%= f.input :input, :label => "Comment"%>
+      <%= f.input :url, :label => "YouTube  Url"%>
 
-        <%= f.submit "Post", class:"comment-sr btn-primary"%>
-      <% end %>
-    </div>
+      <%= f.submit "Post", class:"comment-sr btn-primary"%>
+    <% end %>
+  </div>
 </div>
 
 <div style='margin: 20px 0;'>
