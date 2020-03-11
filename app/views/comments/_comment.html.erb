@@ -3,10 +3,10 @@
 
   <div class="comment-left">
          <%= comment.votes_for.size %>
-    <%= link_to like_comment_path(comment), class:"like-btn", method: :put, remote: true do %>
-          <span><p><i class="<%= current_user.liked?(comment) ? "fas" : "far" %> fa-heart"></i></p></span>
-     <% end %>
-        <span class="likes-count" id="comment-<%= comment.id%>"> <%= comment.get_upvotes.size %> </span>
+  <%= link_to like_comment_path(comment), class:"like-btn", method: :put, remote: true do %>
+      <span><p><i id="comment-<%= comment.id%>-icon" class="<%= current_user.liked?(comment) ? "fas" : "far" %> fa-heart"></i></p></span>
+      <span class="likes-count" id="comment-<%= comment.id%>-text"> <%= comment.get_upvotes.size %> </span>
+<% end %>
   </div>
 
 
@@ -24,6 +24,7 @@
         allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
         allowfullscreen></iframe>
   <% end %>
+
 
   <div class='small_line'>
     <div class='comment-details'>

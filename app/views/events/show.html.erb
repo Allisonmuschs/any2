@@ -1,6 +1,5 @@
 <div class="container">
 
-
   <div class="cards">
     <div class="event-show-card">
       <%= image_tag "ANY1logo.png", alt:"logo", class: 'logo'%>
@@ -15,20 +14,18 @@
       <%= simple_form_for [@event, SongRequest.new] do |sg| %>
 
         <%= sg.input :input, :label => "Find a track"%>
-        <!-- # <%#= sg.label "Audio File" %> -->
-        <%= sg.input :song_file, as: :file,  class: 'd-none', id:'song-upload-field' %>
-        <!-- <button id='song-upload'>Upload a file</button> -->
-        <%= sg.submit "submit" %>
+        <%= sg.file_field :song_file, class: 'd-none', id:'song-upload-field' %>
 
+        <button id='song-upload'>Upload a file</button>
+        <%= sg.submit "submit", class:"file-submit"%>
       <% end %>
       </div>
 
-    <div class="sr-card">
-    </div>
+
 
     <div class="sr-header">
       <% @event.song_requests.sort_by{|sr| sr.comments.length}.reverse.each do |song_request| %>
-        <h2><%= link_to song_request.user.username, user_profiles_path(song_request.user_id) %></h2>
+        <h2 id="event-username"><%= link_to song_request.user.username, user_profiles_path(song_request.user_id) %></h2>
           <%= render partial: 'song_requests/show', locals: {song_request: song_request} %>
         <% end %>
 

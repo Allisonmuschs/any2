@@ -4,6 +4,9 @@ class EventsController < ApplicationController
     @event = Event.new
     if params[:query].present?
         @events = Event.search_by_name params[:query]
+        redirect_to event_path(@events.first) if @events.size == 1
+
+        redirect_to root_path, notice: "No event existing" if @events.size == 0
     end
   end
 
