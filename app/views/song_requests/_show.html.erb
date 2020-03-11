@@ -41,7 +41,6 @@
   <% end %>
 <% end %>
 
-<ul>
-  <%= render partial: 'comments/comment', collection: song_request.comments.sort_by{|co| co.get_upvotes.size}.reverse %>
-</ul>
+<%= render partial: 'comments/comment', collection: song_request.comments.sort_by{|co| co.get_upvotes.size}.reverse %>
+
 
