@@ -10,17 +10,18 @@
     <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
   </head>
   <body>
-    <%= render 'shared/navbar' %>
-    <%= render 'shared/flashes' %>
+
 
       <section class="bg-black">
         <div class="container">
           <%= yield %>
           <div class="pagebox">
             <%= link_to "IDENTIFIED TRACKS" , library_path, :class => "id_tracks"%>
-            <%= link_to "My Profile", user_profiles_path(current_user), class: "profile_nav" %>
-            <%= link_to "Add a new event", new_event_path, class: "newevent_nav"%>
-            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "logout_nav" %>
+            <% if current_user %>
+              <%= link_to "MY PROFILE", user_profiles_path(current_user), class: "profile_nav" %>
+            <% end  %>
+            <%= link_to "ADD A NEW EVENT", new_event_path, class: "newevent_nav"%>
+            <%= link_to "LOG OUT", destroy_user_session_path, method: :delete, class: "logout_nav" %>
           </div>
         </div>
       </section>
