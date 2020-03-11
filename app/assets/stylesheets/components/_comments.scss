@@ -10,24 +10,29 @@ margin-bottom: 80px;
 
 .comment-left {
   display: flex;
-  background: white;
   border-radius: 50px;
   padding: 10px;
-  height: 70px;
-  width: 70px;
-  border: 3px solid;
+  height: 50px;
+  width: 50px;
+  border: 2px solid;
+  border-color: black;
   margin-right: 10px;
   justify-content: center;
   align-items: center;
+  position: relative;
+  color: black;
+}
 
-  p {
-    font-size: 20px
+.like-btn {
+  .likes-count {
+    position: relative;
+    padding-bottom: 8px;
+    font-weight: bold;
   }
-
 }
 
 .comment-right {
-background: white;
+background: #ffbfbf;
 width: 100%;
 border-radius: 50px;
 border: 3px solid;
@@ -52,33 +57,36 @@ h3 {
 .comment-details-author {
   display: flex;
   align-item: flex-end;
+  background-color: #ffbfbf;
 }
 
 
 .comment-answer {
-  background: white;
+  background: #ffbfbf;
   float: right;
+  width: 70%;
+  margin-bottom: 10px;
 .btn-primary {
   align-item: flex-end;
   float: right;
   color: black;
   border-radius: 50px;
   border: 2px solid;
-  background: white;
+  background: #ffbfbf;
   text-decoration: none;
  }
  .btn-primary:hover {
   background: red;
-  color: white;
+  color: black;
   border: 2px solid;
 }
 .btn-primary:visited {
-  background: white;
+  background: #ffbfbf;
   color: black;
   border: 2px solid;
 }
 .btn-primary:active {
-  background: white;
+  background: #ffbfbf;
   color: black;
   border: 2px solid;
 }
@@ -124,6 +132,10 @@ a:hover {
 }
 .span2 {
   margin-right: 3px;
+}
+
+#color{
+  background-color: #ffbfbf;
 }
 
 

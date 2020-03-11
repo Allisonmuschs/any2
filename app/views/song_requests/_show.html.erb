@@ -1,4 +1,4 @@
-<div class="sr-header">
+<div class="sr">
   <h3 id="h3inline"><%= song_request.input %></h3>
   <span class="edit-delete">
 <%= link_to song_request_favorites_path(song_request),
@@ -12,36 +12,44 @@
                     data: { confirm: "Are you sure?" }%>
 <% end %>
   </span>
-</div>
-
+<div>
 <% if song_request.song_file.attached? %>
 
   <%= cl_video_tag(song_request.song_file.key , :controls => true,
               :fallback_content => "Your browser does not support HTML5 video tags.",
               :class =>"video-styling" )%>
 <% end %>
+</div>
+</div>
 
-
-
-<%= simple_form_for [song_request, Comment.new] do |f| %>
-  <%= f.input :input, :label => "Comment"%>
-  <%= f.input :url, :label => "YouTube  Url"%>
-
-  <%= f.submit "add a comment", class: "btn btn-outline-dark" %>
-<% end %>
-
-
+<span class="solved">
 <% if song_request.user == current_user && song_request.comments.present? %>
-  <%= link_to solved_song_request_path(song_request), method: :patch do %>
+  <%= link_to solved_song_request_path(song_request), method: :patch, remote: true do %>
     <% if song_request.solved == true  %>
-       <i class="fas fa-check" style = 'color:green' ></i>
+       <i id= "song_request-<%=song_request.id%>" class="fas fa-check" style = 'color:green'></i>
     <% else %>
-      <i class="fas fa-check" ></i>
+      <i id= "song_request-<%=song_request.id%>" class="fas fa-check" style = 'color:red'></i>
    <% end %>
   <% end %>
 <% end %>
+</span>
+<div class="comment-sr">
+  <p>
+    <a class="btn btn-primary" data-toggle="collapse" href="#collapse-<%= song_request.id%>" role="button" aria-expanded="false" aria-controls="collapseExample">
+      Comment
+    </a>
+  </p>
+    <div class="collapse"id="collapse-<%= song_request.id  %>">
+      <%= simple_form_for [song_request, Comment.new] do |f| %>
+        <%= f.input :input, :label => "Comment"%>
+        <%= f.input :url, :label => "YouTube  Url"%>
 
-<ul>
-  <%= render partial: 'comments/comment', collection: song_request.comments.sort_by{|co| co.get_upvotes.size}.reverse %>
-</ul>
+        <%= f.submit "Post", class:"comment-sr btn-primary"%>
+      <% end %>
+    </div>
+</div>
+
+
+<%= render partial: 'comments/comment', collection: song_request.comments.sort_by{|co| co.get_upvotes.size}.reverse %>
+
 

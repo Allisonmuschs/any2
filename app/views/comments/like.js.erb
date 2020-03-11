@@ -2,11 +2,11 @@
 // 2. updater la valeur des likes
 
 <% if current_user.liked? @comment %>
-  document.querySelector("#comment-<%= @comment.id %>-icon").className = "fas fa-heart";
+  document.querySelector("#comment-<%= @comment.id %>-icon").className = "fas fa-heart fa-sm";
   document.querySelector("#comment-<%= @comment.id %>-text").innerHTML= "<%= @comment.get_upvotes.size %>";
 
 <% else %>
-  document.querySelector("#comment-<%= @comment.id %>-icon").className = "far fa-heart";
+  document.querySelector("#comment-<%= @comment.id %>-icon").className = "far fa-heart fa-sm";
   document.querySelector("#comment-<%= @comment.id %>-text").innerHTML= "<%= @comment.get_upvotes.size %>";
 
 <% end %>

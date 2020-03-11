@@ -19,6 +19,34 @@
   border-radius: 50px;
 }
 
+.comment-sr {
+
+.btn-primary {
+  color: black;
+  border-radius: 50px;
+  border: 2px solid;
+  background: white;
+  text-decoration: none;
+ }
+ .btn-primary:hover {
+  background: red;
+  color: black;
+  border: 2px solid;
+}
+.btn-primary:visited {
+  background: #ffbfbf;
+  color: black;
+  border: 2px solid;
+}
+.btn-primary:active {
+  background: #ffbfbf;
+  color: black;
+  border: 2px solid;
+}
+}
+
+
+
 #song_request_song_file{
   // border-radius: 50px;
 }
@@ -44,8 +72,15 @@
 
 }
 
+.sr{
+  border-bottom: .4rem dashed lightgrey;
+  margin-bottom: 15px;
+  margin-top: 15px;
+}
+
 .sr-header{
   margin-bottom: 20px;
+
 }
 
 .video-styling{
@@ -75,7 +110,13 @@
   a{
   color: black;
   }
+}
 
+.answer-form{
+  width: 300px;
+}
 
-
+.solved{
+  float: right;
+  margin-right: 100px;
 }

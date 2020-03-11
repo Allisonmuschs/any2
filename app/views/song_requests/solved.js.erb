@@ -1,0 +1,8 @@
+<% if @song_request.solved == true  %>
+  document.querySelector("#song_request-<%= @song_request.id%>").style = "color:green";
+
+<% else %>
+  document.querySelector("#song_request-<%= @song_request.id%>").style = "color:red";
+
+<% end %>
+

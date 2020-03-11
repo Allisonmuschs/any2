@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 2020_03_09_083715) do
 
   create_table "comments", force: :cascade do |t|
     t.string "input"
-    t.string "commentable_type"
+    t.string "commentabraille_type"
     t.bigint "commentable_id"
     t.bigint "user_id"
     t.datetime "created_at", null: false

@@ -1,29 +1,21 @@
+
 <div class="page-container">
-  <div class="cards">
-    <div class="home-card event-card">
+  <div class="background-card">
+    <div class="cards-create">
       <%= image_tag "ANY1logo.png", alt:"logo", class: 'logo'%>
-  <h1>Profile page of <%= @username.capitalize %></h1>
-    <h2>Song Requests:</h2>
-  <ul>
-      <% @song_requests.each do |sr| %>
-   <li><%= sr.event.name %> - <%= link_to sr.input, event_path(sr.event) %>
-   <% end  %>
-</ul>
-
-<h2>Events created:</h2>
-<ul>
- <% @events.each do |e| %>
-<li><%= e.name  %>
-   <%= e.created_at.strftime('%d-%m-%Y') %> - <%= link_to e.id, event_path(e) %> </li>
- <% end  %>
-</ul>
-  <h2>Favorites Song Requests</h2>
-     <ul>
-      <% current_user.favorites.each do |fav| %>
-        <li> <%= fav.song_request.event.location %> - <%= fav.song_request.event.name %> - <%= link_to fav.song_request.input, event_song_request_path(id: fav.song_request.id, event_id:fav.song_request.event.id)  %></li>
-      <% end %>
-    </ul>
+    <h1>Profile page of <%= @username.capitalize %></h1>
+      <div class="profile-request">
+        <div class="request-details">
+          <div class="title"> Past Events </div>
+          <div class="title"> Song Requests </div>
+        </div>
+        <% @song_requests.each do |sr| %>
+        <div class="request-details">
+          <div class="area-sr"> <%= link_to sr.event.name, event_path(sr.event) %></div>
+          <div class="area-sr"> <%= sr.top_comment.nil? ? "NO Song Requests yet" : sr.top_comment.input %></div>
+        </div>
+        <% end %>
+      </div>
+    </div>
   </div>
-</div>
-
 </div>
