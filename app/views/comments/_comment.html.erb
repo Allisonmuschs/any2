@@ -2,7 +2,7 @@
 
 
   <div class="comment-left">
-         <%= comment.votes_for.size %>
+
   <%= link_to like_comment_path(comment), class:"like-btn", method: :put, remote: true do %>
       <span><p><i id="comment-<%= comment.id%>-icon" class="<%= current_user.liked?(comment) ? "fas" : "far" %> fa-heart"></i></p></span>
       <span class="likes-count" id="comment-<%= comment.id%>-text"> <%= comment.get_upvotes.size %> </span>
