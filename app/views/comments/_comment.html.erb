@@ -25,13 +25,14 @@
         allowfullscreen></iframe>
   <% end %>
 
-
+  <div class='small_line'>
     <div class='comment-details'>
       <div class="comment-details-author">
         <span class="span1"><p> Creation <%= comment.created_at %> </p></span>
         <span class="span2"><p> by <%= comment.user.username %></p></span>
     </div>
     </div>
+
 
     <div class="comment-links">
         <% if comment.user == current_user %>
@@ -41,7 +42,7 @@
           data: { confirm: "Are you sure?" }%></p></span>
           <% end %>
       </div>
-
+   </div>
 
     <div class="comment-answer">
           <p>
@@ -49,7 +50,7 @@
         Answer
       </a>
     </p>
-      <div class="collapse" id="collapse-<%= comment.id %>">
+      <div class="collapse" id="collapse-<%= comment.id  %>">
         <div class="card card-body">
           <%= simple_form_for [comment, Comment.new] do |f| %>
             <%= f.input :input, :label => "Answer"%>
