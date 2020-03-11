@@ -1,17 +1,13 @@
 .header {
   letter-spacing: 1.5px;
   margin-bottom: 10px;
-
 }
-
 .ul{
   font-size: 20px;
 }
 /* .pro-cards{
   background-color: black;
-
 }
-
 .pro-card {
   border-radius: 20px;
   border: 2px solid;
@@ -19,13 +15,16 @@
   background: #FFFFFF;
   padding: 30px;
   height: 300px;
-
 } */
-
 .event-card{
-
   height: auto;
-
 }
-
-
+ .profile-request {
+  display: grid;
+  width: 100%;
+  margin-top: 30px;
+}
+.request-details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
