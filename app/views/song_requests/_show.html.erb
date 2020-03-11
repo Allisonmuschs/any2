@@ -32,11 +32,11 @@
 
 
 <% if song_request.user == current_user && song_request.comments.present? %>
-  <%= link_to solved_song_request_path(song_request), method: :patch do %>
+  <%= link_to solved_song_request_path(song_request), method: :patch, remote: true do %>
     <% if song_request.solved == true  %>
-       <i class="fas fa-check" style = 'color:green' ></i>
+       <i id= "song_request-<%=song_request.id%>" class="fas fa-check" style = 'color:green' ></i>
     <% else %>
-      <i class="fas fa-check" ></i>
+      <i id= "song_request-<%=song_request.id%>" class="fas fa-check" style = 'color:red'></i>
    <% end %>
   <% end %>
 <% end %>

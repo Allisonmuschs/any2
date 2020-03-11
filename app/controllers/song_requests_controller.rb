@@ -49,10 +49,12 @@ class SongRequestsController < ApplicationController
   def solved
     @song_request = SongRequest.find(params[:id])
     if @song_request.user == current_user
-    @song_request.solved = !@song_request.solved
-    @song_request.save
-    redirect_to @song_request.event
-  end
+      @song_request.solved = !@song_request.solved
+      @song_request.save
+        respond_to do |format|
+          format.js
+        end
+    end
   end
 
   private
