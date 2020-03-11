@@ -13,8 +13,8 @@
 <h2>Events created:</h2>
 <ul>
  <% @events.each do |e| %>
-<li><%= e.name  %>
-   <%= e.created_at.strftime('%d-%m-%Y') %> - <%= link_to e.id, event_path(e) %> </li>
+<li><%= link_to e.name, event_path(e)  %>
+   <%= e.created_at.strftime('%d-%m-%Y') %></li>
  <% end  %>
 </ul>
   <h2>Favorites Song Requests</h2>
