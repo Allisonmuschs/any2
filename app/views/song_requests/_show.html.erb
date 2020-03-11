@@ -22,14 +22,21 @@
 <% end %>
 
 
+<div>
+  <p>
+    <a class="btn btn-primary" data-toggle="collapse" href="#collapse-<%= song_request.id%>" role="button" aria-expanded="false" aria-controls="collapseExample">
+      Comment
+    </a>
+  </p>
+    <div class="collapse"id="collapse-<%= song_request.id  %>">
+      <%= simple_form_for [song_request, Comment.new] do |f| %>
+        <%= f.input :input, :label => "Comment"%>
+        <%= f.input :url, :label => "YouTube  Url"%>
 
-<%= simple_form_for [song_request, Comment.new] do |f| %>
-  <%= f.input :input, :label => "Comment"%>
-  <%= f.input :url, :label => "YouTube  Url"%>
-
-  <%= f.submit "add a comment", class: "btn btn-outline-dark" %>
-<% end %>
-
+        <%= f.submit "add a comment", class: "btn btn-outline-dark"%>
+      <% end %>
+    </div>
+</div>
 
 <% if song_request.user == current_user && song_request.comments.present? %>
   <%= link_to solved_song_request_path(song_request), method: :patch, remote: true do %>
