@@ -1,8 +1,12 @@
+var container = document.querySelector("#song_request-<%= @song_request.id%>")
+
 <% if @song_request.solved == true  %>
-  document.querySelector("#song_request-<%= @song_request.id%>").style = "color:green";
+  container.querySelector("i").style = "color:green";
+  container.querySelector("span").innerText = "identified"
+  container.querySelector("span").style = "color:green"
 
 <% else %>
-  document.querySelector("#song_request-<%= @song_request.id%>").style = "color:red";
-
+    container.querySelector("i").style = "color:red";
+    container.querySelector("span").innerText = "mark as identified"
+    container.querySelector("span").style = "color:red"
 <% end %>
-
