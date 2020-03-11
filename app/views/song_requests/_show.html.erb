@@ -1,10 +1,13 @@
 <div class="sr">
-  <h3 id="h3inline"><%= song_request.input %></h3>
-  <span class="edit-delete">
+  <h3 id="h3inline"><%= song_request.input %></h3> by
+  <span class="red-links"><%= link_to song_request.user.username, user_profiles_path(song_request.user_id) %></span>
+  <span class="red-links marg-left">
     <%= link_to song_request_favorites_path(song_request),
         method: :post, remote: true do %>
-        <i id="favSg-<%=song_request.id%>" class="<%= current_user.favorites.find_by(song_request: song_request).present? ? "fas" : "far" %> fa-star"></i>
+        <i id="favSg-<%=song_request.id%>" class="<%= current_user.favorites.find_by(song_request: song_request).present? ? "fas" : "far" %> fa-star" title="Add to favorite"></i>
     <% end %>
+  </span>
+  <span class="red-links">
     <% if song_request.user == current_user %>
         <%= link_to 'edit', edit_event_song_request_path(@event.id, song_request.id) %>
         - <%= link_to 'delete', song_request_path(song_request),

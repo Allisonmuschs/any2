@@ -73,7 +73,6 @@
 }
 
 .sr{
-  border-bottom: .4rem dashed lightgrey;
   padding-bottom: 20px;
   margin-top: 15px;
 }
@@ -97,7 +96,7 @@
 
 }
 
-.edit-delete{
+.marg-left{
   margin-left: 20px;
 }
 
@@ -115,11 +114,6 @@
   text-decoration: none;
 }
 
-#event-username{
-  a{
-  color: black;
-  }
-}
 
 .answer-form{
   width: 300px;
@@ -128,4 +122,10 @@
 .solved{
   float: right;
   margin-right: 100px;
+}
+.red-links{
+  :hover{
+    color:red;
+    text-decoration: none;
+  }
 }
