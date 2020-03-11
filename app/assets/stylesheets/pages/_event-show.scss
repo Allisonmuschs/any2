@@ -74,7 +74,7 @@
 
 .sr{
   border-bottom: .4rem dashed lightgrey;
-  margin-bottom: 15px;
+  padding-bottom: 20px;
   margin-top: 15px;
 }
 
@@ -86,14 +86,15 @@
 .video-styling{
   width: 50%;
   height: 50px;
-  margin-bottom: 20px;
   border: 1px solid black;
   border-radius: 30px;
+  margin-top: 15px;
 }
 
 #h3inline{
   display: inline;
   margin-bottom: 20px;
+
 }
 
 .edit-delete{
@@ -104,6 +105,14 @@
   border-radius: 30px;
   border-color: black;
   border-width:2px;
+}
+
+.no-underline {
+  font-weight: 600;
+}
+
+.no-underline:hover {
+  text-decoration: none;
 }
 
 #event-username{
