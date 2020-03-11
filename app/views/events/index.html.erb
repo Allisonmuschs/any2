@@ -1,6 +1,8 @@
 <div class="container" data-events="<%= @events.map {|e| {name: e.name, link: event_path(e)}}.to_json %>">
-  <div class="background-card">
-    <h1 id="h1List">Events</h1>
+  <div class="cards">
+    <div class="cards-create">
+      <h1 id="h1create">Events</h1>
+    </div>
     <div class="cards-create" id="eventsContainer" >
     </div>
   </div>

@@ -6,7 +6,7 @@ const containerHeight = eventsContainer.offsetHeight;
 const containerWidth = eventsContainer.offsetWidth;
 
 const boxColumnsCount = 7;
-const boxLinesCount = 7;
+const boxLinesCount = 5;
 const boxWidth = containerWidth / boxColumnsCount;
 const boxHeight = containerHeight / boxLinesCount;
 
