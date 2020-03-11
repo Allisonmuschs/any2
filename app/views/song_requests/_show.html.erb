@@ -1,4 +1,3 @@
-
 <div class="sr-header">
   <h3 id="h3inline"><%= song_request.input %></h3>
   <span class="edit-delete">
@@ -45,5 +44,4 @@
 <ul>
   <%= render partial: 'comments/comment', collection: song_request.comments.sort_by{|co| co.get_upvotes.size}.reverse %>
 </ul>
-
 

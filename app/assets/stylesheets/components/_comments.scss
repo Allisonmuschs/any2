@@ -1,3 +1,7 @@
+.infossr {
+margin-bottom: 80px;
+}
+
 .comment-box {
   display: flex;
   justify-content: space-around;
@@ -37,7 +41,8 @@ h3 {
 
 .comment-details {
   display: flex;
-  justify-content: flex-end;
+  float: right;
+  align-item: flex-end;
   background: white;
   p {
     font-size: 10px;
@@ -46,25 +51,15 @@ h3 {
 
 .comment-details-author {
   display: flex;
-  margin-right: 22px
+  align-item: flex-end;
 }
 
-.comment-links {
-  display: flex;
-a {
-  text-decoration: none;
-  color: black;
-}
-a:hover {
-  color: black
-}
-}
 
 .comment-answer {
   background: white;
-  align-items: center;
   float: right;
 .btn-primary {
+  align-item: flex-end;
   float: right;
   color: black;
   border-radius: 50px;
@@ -89,23 +84,46 @@ a:hover {
 }
 }
 
-
-.answer_to_answer {
-  background: red;
+.small_line {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-end
 }
+
+.comment-links {
+display: flex;
+float: right;
+a {
+  text-decoration: none;
+  color: black;
+}
+a:hover {
+  color: red;
+}
+.span3 {
+  margin-right: 3px;
+  p {
+    font-size: 10px;
+  }
+}
+.span4 {
+  margin-right: 3px;
+  p {
+    font-size: 10px;
+  }
+  p:hover {
+    color: red
+  }
+}
+}
+
 
 .span1 {
   margin-right: 3px;
 }
-
-
-
 .span2 {
   margin-right: 3px;
 }
-
-
-
-
 
 
