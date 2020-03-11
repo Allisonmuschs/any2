@@ -1,8 +1,10 @@
+var container = document.querySelector("#song_request-<%= @song_request.id%>")
+
 <% if @song_request.solved == true  %>
-  document.querySelector("#song_request-<%= @song_request.id%>").style = "color:green";
+  container.querySelector("span").innerText = "Found it"
+  container.querySelector("span").style = "color:green"
 
 <% else %>
-  document.querySelector("#song_request-<%= @song_request.id%>").style = "color:red";
-
+    container.querySelector("span").innerText = "Not found yet"
+    container.querySelector("span").style = "color:red"
 <% end %>
-

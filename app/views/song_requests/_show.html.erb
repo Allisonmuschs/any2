@@ -1,38 +1,41 @@
 <div class="sr">
   <h3 id="h3inline"><%= song_request.input %></h3>
   <span class="edit-delete">
-<%= link_to song_request_favorites_path(song_request),
+    <%= link_to song_request_favorites_path(song_request),
         method: :post, remote: true do %>
         <i id="favSg-<%=song_request.id%>" class="<%= current_user.favorites.find_by(song_request: song_request).present? ? "fas" : "far" %> fa-star"></i>
-<% end %>
-<% if song_request.user == current_user %>
-  <%= link_to 'edit', edit_event_song_request_path(@event.id, song_request.id) %>
-  - <%= link_to 'delete', song_request_path(song_request),
+    <% end %>
+    <% if song_request.user == current_user %>
+        <%= link_to 'edit', edit_event_song_request_path(@event.id, song_request.id) %>
+        - <%= link_to 'delete', song_request_path(song_request),
                     method: :delete,
                     data: { confirm: "Are you sure?" }%>
-<% end %>
+    <% end %>
   </span>
-<div>
-<% if song_request.song_file.attached? %>
-
-  <%= cl_video_tag(song_request.song_file.key , :controls => true,
+    <% if song_request.song_file.attached? %>
+    <div>
+      <%= cl_video_tag(song_request.song_file.key , :controls => true,
               :fallback_content => "Your browser does not support HTML5 video tags.",
               :class =>"video-styling" )%>
-<% end %>
-</div>
+    <% end %>
+  <span>
+  <% if song_request.user == current_user && song_request.comments.present? %>
+    <%= link_to solved_song_request_path(song_request), method: :patch, remote: true do %>
+      <% if song_request.solved == true  %>
+        <div class="no-underline solved" id= "song_request-<%=song_request.id%>">
+          <span style = 'color:green'>Found it</span>
+        </div>
+      <% else %>
+        <div class="no-underline solved" id= "song_request-<%=song_request.id%>">
+          <span style = 'color:red'>Not found yet</span>
+        </div>
+     <% end %>
+    <% end %>
+  <% end %>
+  </span>
+  </div>
 </div>
 
-<span class="solved">
-<% if song_request.user == current_user && song_request.comments.present? %>
-  <%= link_to solved_song_request_path(song_request), method: :patch, remote: true do %>
-    <% if song_request.solved == true  %>
-       <i id= "song_request-<%=song_request.id%>" class="fas fa-check" style = 'color:green'></i>
-    <% else %>
-      <i id= "song_request-<%=song_request.id%>" class="fas fa-check" style = 'color:red'></i>
-   <% end %>
-  <% end %>
-<% end %>
-</span>
 <div class="comment-sr">
   <p>
     <a class="btn btn-primary" data-toggle="collapse" href="#collapse-<%= song_request.id%>" role="button" aria-expanded="false" aria-controls="collapseExample">
@@ -49,6 +52,9 @@
     </div>
 </div>
 
+<div style='margin: 20px 0;'>
+  <%= render partial: 'shared/svgs/yellow_line' %>
+</div>
 
 <%= render partial: 'comments/comment', collection: song_request.comments.sort_by{|co| co.get_upvotes.size}.reverse %>
 
