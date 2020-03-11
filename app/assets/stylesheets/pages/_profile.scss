@@ -2,29 +2,44 @@
   letter-spacing: 1.5px;
   margin-bottom: 10px;
 }
-.ul{
+
+.ul {
   font-size: 20px;
 }
-/* .pro-cards{
-  background-color: black;
-}
-.pro-card {
-  border-radius: 20px;
-  border: 2px solid;
-  box-sizing: border-box;
-  background: #FFFFFF;
-  padding: 30px;
-  height: 300px;
-} */
-.event-card{
+
+.event-card {
   height: auto;
+  overflow: auto;
 }
- .profile-request {
+.profile-request {
   display: grid;
+  height: 100%;
   width: 100%;
   margin-top: 30px;
 }
-.request-details {
+
+.pro-request-details {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+
+}
+
+div.pro-sr {
+   // margin-left: 100px;
+  padding: 10px;
+  height: 100%;
+}
+
+div.title {
+
+  font-size: 20px;
+  padding: 10px;
+}
+
+a {
+  color: black;
+}
+
+a.hover {
+  color: red;
 }
