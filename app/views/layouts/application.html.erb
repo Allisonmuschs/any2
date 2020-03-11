@@ -12,15 +12,21 @@
   <body>
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
-    <div class="container">
 
-
+      <section class="bg-black">
+        <div class="container">
+          <%= yield %>
+          <div class="pagebox">
+            <%= link_to "IDENTIFIED TRACKS" , library_path, :class => "id_tracks"%>
+            <%= link_to "My Profile", user_profiles_path(current_user), class: "profile_nav" %>
+            <%= link_to "Add a new event", new_event_path, class: "newevent_nav"%>
+            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "logout_nav" %>
+          </div>
         </div>
-      </div>
-    <%= yield %>
-    </div>
-    <%= javascript_include_tag 'application' %>
+      </section>
 
+
+    <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
   </body>
 </html>
