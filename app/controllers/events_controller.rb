@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
   def index
-    @events = Event.limit(20)
+    @events = Event.limit(30)
     @event = Event.new
     if params[:query].present?
         @events = Event.search_by_name params[:query]
