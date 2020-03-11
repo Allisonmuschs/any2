@@ -3,8 +3,8 @@
   <h3 id="h3inline"><%= song_request.input %></h3>
   <span class="edit-delete">
 <%= link_to song_request_favorites_path(song_request),
-        method: :post do %>
-        <i class="<%= current_user.favorites.find_by(song_request: song_request).present? ? "fas" : "far" %> fa-star"></i>
+        method: :post, remote: true do %>
+        <i id="favSg-<%=song_request.id%>" class="<%= current_user.favorites.find_by(song_request: song_request).present? ? "fas" : "far" %> fa-star"></i>
 <% end %>
 <% if song_request.user == current_user %>
   <%= link_to 'edit', edit_event_song_request_path(@event.id, song_request.id) %>

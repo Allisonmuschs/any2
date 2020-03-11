@@ -1,0 +1,5 @@
+<% if current_user.favorites.find_by(song_request: @song_request).present? %>
+  document.querySelector("#favSg-<%=@song_request.id%>").className = "fas fa-star";
+<% else %>
+  document.querySelector("#favSg-<%=@song_request.id%>").className = "far fa-star";
+<% end %>
