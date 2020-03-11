@@ -3,17 +3,20 @@
   <div class="background-card">
     <div class="cards-create">
       <%= image_tag "ANY1logo.png", alt:"logo", class: 'logo'%>
-    <h1>Profile page of <%= @username.capitalize %></h1>
-      <div class="profile-request">
-        <div class="request-details">
-          <div class="title"> Past Events </div>
+      <h1>Profile page of <%= @username.capitalize %></h1>
+        <div class="pro-request-details">
           <div class="title"> Song Requests </div>
+          <div class="title"> Events </div>
+          <div class="title"> Favorites </div>
         </div>
         <% @song_requests.each do |sr| %>
-        <div class="request-details">
-          <div class="area-sr"> <%= link_to sr.event.name, event_path(sr.event) %></div>
-          <div class="area-sr"> <%= sr.top_comment.nil? ? "NO Song Requests yet" : sr.top_comment.input %></div>
-        </div>
+          <div class="pro-request-details">
+            <div class="pro-sr"><%= link_to sr.input, song_request_path(sr) %></div>
+            <div class="pro-sr"><%= link_to sr.event.name, event_path(sr.event) %></div>
+          </div>
+        <% end %>
+        <% current_user.favorites.each do |fav| %>
+          <div class="pro-sr"> <%= fav.song_request.event.location %></div>
         <% end %>
       </div>
     </div>
