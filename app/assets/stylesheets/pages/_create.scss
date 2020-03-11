@@ -77,8 +77,13 @@
   }
 
   .form-group.string.required {
-    display: flex;
-    margin-left: auto;
+    display: block;
+    width: 80%;
+  }
+
+  .form-control{
+    display: block;
+    width: 80%;
   }
 
   .form-group.datetime.required.event_date {
@@ -91,8 +96,8 @@
   }
 
   .string.required {
-    margin-left: auto;
-    font-weight: 400;
+
+    font-weight: 300;
     font-family: Roboto;
     font-size: 20px;
 

@@ -26,7 +26,7 @@
         <div class='comment-details'>
           <div class="comment-details-author">
             <span class="span1"><p> Creation <%= comment.created_at.strftime("%d/%m/%Y - %I:%M %p") %></p></span>
-            <span class="span2"><p> by <%= comment.user.username %></p></span>
+            <span class="span2 comment-links"><p> by <%= link_to comment.user.username, user_profiles_path(comment.user_id) %></p></span>
           </div>
         </div>
 
@@ -47,7 +47,7 @@
           </a>
         </p>
         <div class="collapse" id="collapse-<%= comment.id  %>">
-          <div class="card card-body">
+          <div class="card card-body" id="color">
             <%= simple_form_for [comment, Comment.new] do |f| %>
               <%= f.input :input, :label => "Answer"%>
               <%= f.input :url, :label => "YouTube Url"%>
