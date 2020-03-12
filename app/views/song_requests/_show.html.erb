@@ -1,6 +1,7 @@
 <div style='margin: 20px 0;'>
   <%= render partial: 'shared/svgs/yellow_line' %>
 </div>
+
 <div class="sr">
   <h3 id="h3inline"><%= song_request.input %></h3> by
   <span class="red-links"><%= link_to song_request.user.username, user_profiles_path(song_request.user_id) %></span>
@@ -18,29 +19,28 @@
                     data: { confirm: "Are you sure?" }%>
     <% end %>
   </span>
-    <span>
-      <% if song_request.user == current_user && song_request.comments.present? %>
-        <%= link_to solved_song_request_path(song_request), method: :patch, remote: true do %>
-          <% if song_request.solved == true  %>
-            <div class="no-underline solved green" id= "song_request-<%=song_request.id%>">
-              <span>Track identified</span>
-            </div>
-          <% else %>
-            <div class="no-underline solved red" id= "song_request-<%=song_request.id%>">
-              <span>Mark as identified</span>
-            </div>
-         <% end %>
-        <% end %>
-      <% end %></span>
-
-
+  <span>
+  <% if song_request.user == current_user && song_request.comments.present? %>
+    <%= link_to solved_song_request_path(song_request), method: :patch, remote: true do %>
+      <% if song_request.solved == true  %>
+        <div class="no-underline solved green" id= "song_request-<%=song_request.id%>">
+          <span>Track identified</span>
+        </div>
+      <% else %>
+        <div class="no-underline solved red" id= "song_request-<%=song_request.id%>">
+          <span>Mark as identified</span>
+        </div>
+     <% end %>
+    <% end %>
+  <% end %>
+</span>
   <% if song_request.song_file.attached? %>
   <div>
     <%= cl_video_tag(song_request.song_file.key , :controls => true,
             :fallback_content => "Your browser does not support HTML5 video tags.",
             :class =>"video-styling" )%>
-  <% end %>
   </div>
+  <% end %>
 </div>
 
 <div class="comment-sr">
