@@ -121,15 +121,21 @@
 
 .solved {
   float: right;
-  margin-right: 10px;
+  margin-right: 20px;
   margin-top: 5px;
   border-radius: 50px;
   border: 1px solid;
   padding: 3px 8px;
-  :hover{
-    border-color: red;
-    color: red;
-  }
+}
+
+.solved.red {
+  border-color: black;
+  color: red
+}
+
+.solved.green {
+  border-color: black;
+  color: green;
 }
 .red-links{
   :hover{
