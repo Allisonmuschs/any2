@@ -1,4 +1,9 @@
 <%= simple_form_for([@event, @song_request]) do |f| %>
   <%= f.input :input, :label => "" %>
-  <%= f.button :submit%>
+  <%= f.file_field :song_file, class: 'd-none', id:'song-upload-field' %>
+
+  <button id='song-upload'>Upload a new file</button>
+
+  <%= f.button :submit, class:"file-submit"%>
+
 <% end %>
