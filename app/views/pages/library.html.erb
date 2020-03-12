@@ -1,8 +1,9 @@
 <div class="page-container">
   <div class="background-card">
     <div class="cards-create">
+      <%= link_to root_path do %><%= image_tag "ANY1logo.png", alt:"logo", class: 'logo'%>
+      <% end %>
       <h1 id= "h1create"> IDENTIFIED TRACKS</h1>
-
     <% @song_requests.each do |sr| %>
       <div class="original-request">
         <div id="title"><%= image_tag("https://res.cloudinary.com/dxtzparjx/image/upload/c_scale,w_34/v1583756325/any_1_imgs/any_1_cir_ddwfxn.png") %> ORIGINAL REQUEST </div>
