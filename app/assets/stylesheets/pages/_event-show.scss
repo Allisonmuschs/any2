@@ -20,13 +20,15 @@
 }
 
 .comment-sr {
-
+  margin-bottom: 15px;
 .btn-primary {
   color: black;
   border-radius: 50px;
+  padding: 4px 10px;
   border: 2px solid;
   background: white;
   text-decoration: none;
+  min-width: 20px;
  }
  .btn-primary:hover {
   background: red;
@@ -142,4 +144,7 @@
     color:red;
     text-decoration: none;
   }
+}
+.pad{
+  padding-left: 10px;
 }

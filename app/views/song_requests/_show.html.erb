@@ -1,4 +1,6 @@
-<div class="align-all">
+<div style='margin: 20px 0;'>
+  <%= render partial: 'shared/svgs/yellow_line' %>
+</div>
 <div class="sr">
   <h3 id="h3inline"><%= song_request.input %></h3> by
   <span class="red-links"><%= link_to song_request.user.username, user_profiles_path(song_request.user_id) %></span>
@@ -29,8 +31,8 @@
             </div>
          <% end %>
         <% end %>
-      <% end %>
-    </span>
+      <% end %></span>
+
 
   <% if song_request.song_file.attached? %>
   <div>
@@ -44,10 +46,9 @@
 <div class="comment-sr">
   <p>
     <a class="btn btn-primary" data-toggle="collapse" href="#collapse-<%= song_request.id%>" role="button" aria-expanded="false" aria-controls="collapseExample">
-      Comment
-    </a>
+      Comment</a>
   </p>
-  <div class="collapse"id="collapse-<%= song_request.id  %>">
+  <div class="collapse card pad"id="collapse-<%= song_request.id  %>">
     <%= simple_form_for [song_request, Comment.new] do |f| %>
       <%= f.input :input, :label => "Comment"%>
       <%= f.input :url, :label => "YouTube  Url"%>
@@ -57,10 +58,7 @@
   </div>
 </div>
 
-<div style='margin: 20px 0;'>
-  <%= render partial: 'shared/svgs/yellow_line' %>
-</div>
 
 <%= render partial: 'comments/comment', collection: song_request.comments.sort_by{|co| co.get_upvotes.size}.reverse %>
 
-</div>
+
