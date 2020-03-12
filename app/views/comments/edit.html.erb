@@ -1,5 +1,12 @@
-<h1>Edit</h1>
+<div class="page-container">
+  <div class="cards">
 
-<%= render "form", comment: @comment %>
+    <div class="home-card">
+      <h1>Edit your comment</h1>
 
-<%= link_to "Back", root_path%>
+      <%= render "form", comment: @comment %>
+
+      <%= link_to "Back", root_path, class: "btn-edit"%>
+    </div>
+  </div>
+</div>
