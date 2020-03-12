@@ -6,17 +6,15 @@
     </div>
 
     <div class="home-card">
-      <h1 class="header">All events</h1>
       <%= form_tag events_path, method: :get do %>
       <%= text_field_tag :query,
         params[:query],
-        class: "search-bar",
-        placeholder: "Search"%>
+        class: "btn-search",
+        placeholder: "Search for an event"%>
 
        <!--  <%= submit_tag "Search", class: "" %>
         <% end %> -->
       <br>
-      <%= link_to "ALL EVENTS", events_path %>
     </div>
   </div>
 </div>

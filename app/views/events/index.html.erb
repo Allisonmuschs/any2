@@ -1,7 +1,15 @@
-<div class="container" data-events="<%= @events.map {|e| {name: e.name, link: event_path(e)}}.to_json %>">
+<div class="page-container" data-events="<%= @events.map {|e| {name: e.name, link: event_path(e)}}.to_json %>">
   <div class="cards">
     <div class="cards-create">
       <h1 id="h1create">Events</h1>
+      <%= form_tag events_path, method: :get do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "search-bar",
+        placeholder: "Search for an event"%>
+
+       <!--  <%= submit_tag "Search", class: "" %>
+        <% end %> -->
     </div>
     <div class="cards-create" id="eventsContainer" >
     </div>
