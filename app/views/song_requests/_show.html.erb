@@ -20,12 +20,12 @@
       <% if song_request.user == current_user && song_request.comments.present? %>
         <%= link_to solved_song_request_path(song_request), method: :patch, remote: true do %>
           <% if song_request.solved == true  %>
-            <div class="no-underline solved" id= "song_request-<%=song_request.id%>">
-              <span style = 'color:green'>Track identified</span>
+            <div class="no-underline solved green" id= "song_request-<%=song_request.id%>">
+              <span>Track identified</span>
             </div>
           <% else %>
-            <div class="no-underline solved" id= "song_request-<%=song_request.id%>">
-              <span style = 'color:red'>Mark as identified</span>
+            <div class="no-underline solved red" id= "song_request-<%=song_request.id%>">
+              <span>Mark as identified</span>
             </div>
          <% end %>
         <% end %>

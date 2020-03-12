@@ -2,9 +2,11 @@ var container = document.querySelector("#song_request-<%= @song_request.id%>")
 
 <% if @song_request.solved == true  %>
   container.querySelector("span").innerText = "Track identified"
-  container.querySelector("span").style = "color:green"
+  container.classList.remove('red')
+    container.classList.add('green')
 
 <% else %>
     container.querySelector("span").innerText = "Mark as identified"
-    container.querySelector("span").style = "color:red"
+    container.classList.remove('green')
+    container.classList.add('red')
 <% end %>
