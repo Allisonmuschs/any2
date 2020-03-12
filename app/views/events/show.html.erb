@@ -3,12 +3,6 @@
     <div class="event-show-card">
       <%= image_tag "ANY1logo.png", alt:"logo", class: 'logo'%>
     </div>
-    <div class="event-show-card">
-      <div class="marg-b">
-        <h1 class="eventname"><%= @event.name %> @<%= @event.location %>, <%= @event.city %></h1>
-        <h2 class="eventartist"><%= @event.date.strftime("%d/%m/%Y - %I:%M %p")%>, <%=@event.artist %></h2>
-
-      </div>
       <div class="event-show-card">
         <div class="marg-b">
           <h1 class="eventname"><%= @event.name %> @<%= @event.location %>, <%= @event.city %></h1>
@@ -33,4 +27,4 @@
     </div>
   </div>
 </div>
-</div>
+
