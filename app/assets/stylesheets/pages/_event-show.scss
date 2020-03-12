@@ -3,7 +3,7 @@
   border: 2px solid;
   box-sizing: border-box;
   background-color: #FFFFFF;
-  padding: 30px;
+  padding: 50px;
 }
 
 .event-show-card, h2{
@@ -119,9 +119,17 @@
   width: 300px;
 }
 
-.solved{
+.solved {
   float: right;
-  margin-right: 100px;
+  margin-right: 10px;
+  margin-top: 5px;
+  border-radius: 50px;
+  border: 1px solid;
+  padding: 3px 8px;
+  :hover{
+    border-color: red;
+    color: red;
+  }
 }
 .red-links{
   :hover{
