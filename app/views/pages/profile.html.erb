@@ -9,15 +9,24 @@
         <div class="title"> Events </div>
         <div class="title"> Favorites </div>
       </div>
-      <% @song_requests.each do |sr| %>
-        <div class="pro-request-details">
-          <div class="pro-sr"><%= link_to sr.input, song_request_path(sr) %></div>
-          <div class="pro-sr"><%= link_to sr.event.name, event_path(sr.event) %></div>
+      <div class="pro-request-details">
+        <div class="my-songs">
+          <% @song_requests.each do |sr| %>
+            <div class="pro-sr"><%= link_to sr.input, song_request_path(sr) %></div>
+          <% end %>
         </div>
-      <% end %>
-        <% current_user.favorites.each do |fav| %>
-          <div class="pro-sr"> <%= fav.song_request.event.location %></div>
-        <% end %>
+        <div class="my-events">
+          <% @song_requests.each do |sr| %>
+            <div class="pro-sr"><%= link_to sr.event.name, event_path(sr.event) %></div>
+          <% end %>
+        </div>
+        <div class="favorites">
+          <% current_user.favorites.each do |fav| %>
+            <div class="pro-sr"><%= link_to fav.song_request.input, song_request_path(fav.song_request) %></div>
+          <% end %>
+        </div>
+      </div>
     </div>
   </div>
 </div>
+
