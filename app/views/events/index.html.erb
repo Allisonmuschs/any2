@@ -1,6 +1,8 @@
 <div class="page-container" data-events="<%= @events.map {|e| {name: e.name, link: event_path(e)}}.to_json %>">
   <div class="cards">
     <div class="cards-create">
+      <%= link_to root_path do %><%= image_tag "ANY1logo.png", alt:"logo", class: 'logo'%>
+      <% end %>
       <h1 id="h1create">Events</h1>
       <%= form_tag events_path, method: :get do %>
       <%= text_field_tag :query,
