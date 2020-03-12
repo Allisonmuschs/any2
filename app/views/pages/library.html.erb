@@ -6,10 +6,10 @@
       <h1 id= "h1create"> IDENTIFIED TRACKS</h1>
     <% @song_requests.each do |sr| %>
       <div class="original-request">
-        <div id="title"><%= image_tag("https://res.cloudinary.com/dxtzparjx/image/upload/c_scale,w_34/v1583756325/any_1_imgs/any_1_cir_ddwfxn.png") %> ORIGINAL REQUEST </div>
-        <div id="area-sr"> <%= link_to sr.input, event_path(sr.event) %></div>
-        <div id="title"> MATCH </div>
-        <div id="area-sr"> <%= sr.top_comment.nil? ? "NO COMMENTS YET" : sr.top_comment.input %></div>
+        <div class="title"><%= image_tag("https://res.cloudinary.com/dxtzparjx/image/upload/c_scale,w_34/v1583756325/any_1_imgs/any_1_cir_ddwfxn.png") %> TRACK REQUESTED </div>
+        <div class="area-sr"> <strong><%= link_to sr.input, event_path(sr.event) %></strong></div>
+        <div class="title-text"> MATCH </div>
+        <div class="area-sr"> <%= sr.top_comment.nil? ? "NO COMMENTS YET" : sr.top_comment.input %></div>
       </div>
     <% end %>
     </div>

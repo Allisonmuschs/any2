@@ -5,19 +5,27 @@
 .original-request {
   display: grid;
   width: 100%;
-  grid-template-columns: 500px 1fr;
+  grid-template-columns: 1fr 1fr;
   margin-top: 30px;
 
 }
 
 div.area-sr {
-
-  padding: 10px;
+  a{
+    line-height: 4;
+  }
+  :hover{
+      color: red;
+  }
 }
+
 div.title {
-  // margin-left: 100px;
   font-style: bold;
   font-size: 30px;
   padding: 10px;
 }
 
+.title-text{
+    margin-left: 100px;
+    text-align: center;
+}
