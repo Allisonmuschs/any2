@@ -88,6 +88,9 @@
 .sr{
   padding-bottom: 20px;
   margin-top: 15px;
+  p, a, span {
+    font-size: 15px;
+  }
 }
 
 .sr-header{
@@ -133,6 +136,7 @@
 }
 
 .solved {
+  font-size: 14px;
   float: right;
   margin-right: 20px;
   margin-top: 5px;
