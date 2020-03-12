@@ -5,8 +5,8 @@ const eventsContainer = document.querySelector("#eventsContainer");
 const containerHeight = eventsContainer.offsetHeight;
 const containerWidth = eventsContainer.offsetWidth;
 
-const boxColumnsCount = 7;
-const boxLinesCount = 5;
+const boxColumnsCount = 4;
+const boxLinesCount = 3;
 const boxWidth = containerWidth / boxColumnsCount;
 const boxHeight = containerHeight / boxLinesCount;
 
