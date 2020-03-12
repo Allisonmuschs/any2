@@ -1,11 +1,9 @@
 <div class="page-container">
   <div class="background-card">
     <div class="cards-create">
-        <%= link_to root_path do %><%= image_tag "ANY1logo.png", alt:"logo", class: 'logo'%>
-      <% end %>
           <h1 id= "h1create">CREATE A NEW EVENT</h1>
             <%= render 'form', event: @event %>
-      <%= link_to "Back", root_path, class: "btn btn-back" %>
+      <%= link_to "BACK", root_path, class: "btn btn-back" %>
     </div>
 
   </div>
