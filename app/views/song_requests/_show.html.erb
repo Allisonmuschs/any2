@@ -7,58 +7,59 @@
   <span class="red-links"><%= link_to song_request.user.username, user_profiles_path(song_request.user_id) %></span>
   <span class="red-links marg-left">
     <%= link_to song_request_favorites_path(song_request),
-        method: :post, remote: true do %>
-        <i id="favSg-<%=song_request.id%>" class="<%= current_user.favorites.find_by(song_request: song_request).present? ? "fas" : "far" %> fa-star" title="Add to favorite"></i>
+    method: :post, remote: true do %>
+    <i id="favSg-<%=song_request.id%>" class="<%= current_user.favorites.find_by(song_request: song_request).present? ? "fas" : "far" %> fa-star" title="Add to favorite"></i>
     <% end %>
   </span>
   <span class="red-links">
     <% if song_request.user == current_user %>
-        <%= link_to 'edit', edit_event_song_request_path(@event.id, song_request.id) %>
-        - <%= link_to 'delete', song_request_path(song_request),
-                    method: :delete,
-                    data: { confirm: "Are you sure?" }%>
+    <%= link_to 'edit', edit_event_song_request_path(@event.id, song_request.id) %>
+    - <%= link_to 'delete', song_request_path(song_request),
+    method: :delete,
+    data: { confirm: "Are you sure?" }%>
     <% end %>
   </span>
   <span>
-  <% if song_request.user == current_user && song_request.comments.present? %>
+    <% if song_request.user == current_user && song_request.comments.present? %>
     <%= link_to solved_song_request_path(song_request), method: :patch, remote: true do %>
-      <% if song_request.solved == true  %>
-        <div class="no-underline solved green" id= "song_request-<%=song_request.id%>">
-          <span>Track identified</span>
-        </div>
-      <% else %>
-        <div class="no-underline solved red" id= "song_request-<%=song_request.id%>">
-          <span>Mark as identified</span>
-        </div>
-     <% end %>
+    <% if song_request.solved == true  %>
+    <div class="no-underline solved green" id= "song_request-<%=song_request.id%>">
+      <span>Track identified</span>
+    </div>
+    <% else %>
+    <div class="no-underline solved red" id= "song_request-<%=song_request.id%>">
+      <span>Mark as identified</span>
+    </div>
     <% end %>
-  <% end %>
-</span>
+    <% end %>
+    <% end %>
+  </span>
   <% if song_request.song_file.attached? %>
-  <div>
-    <%= cl_video_tag(song_request.song_file.key , :controls => true,
-            :fallback_content => "Your browser does not support HTML5 video tags.",
-            :class =>"video-styling" )%>
-  <% end %>
-  </div>
-</div>
+    <div>
+      <%= cl_video_tag(song_request.song_file.key , :controls => true,
+      :fallback_content => "Your browser does not support HTML5 video tags.",
+      :class =>"video-styling" )%>
+    </div>
+   <% end %>
 
-<div class="comment-sr">
-  <p>
-    <a class="btn btn-primary" data-toggle="collapse" href="#collapse-<%= song_request.id%>" role="button" aria-expanded="false" aria-controls="collapseExample">
+  </div>
+
+  <div class="comment-sr">
+    <p>
+      <a class="btn btn-primary" data-toggle="collapse" href="#collapse-<%= song_request.id%>" role="button" aria-expanded="false" aria-controls="collapseExample">
       Comment</a>
-  </p>
-  <div class="collapse card pad"id="collapse-<%= song_request.id  %>">
-    <%= simple_form_for [song_request, Comment.new] do |f| %>
-      <%= f.input :input, :label => "Comment"%>
-      <%= f.input :url, :label => "YouTube  Url"%>
+    </p>
+    <div class="collapse card pad"id="collapse-<%= song_request.id  %>">
+      <%= simple_form_for [song_request, Comment.new] do |f| %>
+        <%= f.input :input, :label => "Comment"%>
+        <%= f.input :url, :label => "YouTube  Url"%>
 
-      <%= f.submit "Post", class:"comment-sr btn-primary"%>
-    <% end %>
+        <%= f.submit "Post", class:"comment-sr btn-primary"%>
+      <% end %>
+    </div>
   </div>
-</div>
 
 
-<%= render partial: 'comments/comment', collection: song_request.comments.sort_by{|co| co.get_upvotes.size}.reverse %>
+  <%= render partial: 'comments/comment', collection: song_request.comments.sort_by{|co| co.get_upvotes.size}.reverse %>
 
 
